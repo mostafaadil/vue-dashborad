@@ -1,0 +1,10 @@
+{
+    "id": "id",
+    "name":"name",
+    "role": "Number of record in addition to get an award",
+    "result": "earned mony for the award in dollars",
+    "created": "created",
+    "updated": "updated",
+    "operations":"operations"
+
+}

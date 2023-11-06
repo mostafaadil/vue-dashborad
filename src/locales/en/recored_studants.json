@@ -1,0 +1,8 @@
+{
+    "id": "id",
+    "operations":"operations",
+    "docoter_id": "doctor",
+    "studant_id": "student",
+    "created": "created",
+    "updated": "updated"
+}

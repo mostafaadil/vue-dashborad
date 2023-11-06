@@ -1,0 +1,9 @@
+{
+    "operations":"operations",
+    "id": "id",
+    "award_id": "gained mony",
+    "poster_id": "name of winner",
+    "award_name": "award name",
+    "created": "created",
+    "updated": "updated"
+}

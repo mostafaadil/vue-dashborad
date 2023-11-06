@@ -1,0 +1,35 @@
+{
+    "menuitems": {
+
+        "dashboard": {
+            "text": "dashboard"
+        },
+        "poster_awareds":{
+            "text":"my awards"
+        },
+        "countries": {
+            "text": "countries"
+        },
+        "states": {
+            "text": "states"
+        },
+        "cities": {
+            "text": "cities"
+        },
+        "posters": {
+            "text": "posters"
+        },
+        "recordes": {
+            "text": "records"
+        },
+        "awards": {
+            "text": "awards"
+        },
+        "unvarsecites": {
+            "text": "universities"
+        },
+        "users": {
+            "text": "users"
+        }
+    }
+}

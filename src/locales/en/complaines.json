@@ -1,0 +1,11 @@
+{
+    "id": "id",
+    "type": "type",
+    "name": "name",
+    "tel": "tel",
+    "email": "email",
+    "payment_method_id": "payment method id",
+    "image": "image",
+    "created": "created",
+    "updated": "updated"
+}

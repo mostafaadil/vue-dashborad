@@ -1,0 +1,20 @@
+{
+    "edit": "edit",
+    "delete": "delete",
+    "search": "search",
+    "reject":"reject",
+    "approve":"approve",
+    "add":"add",
+    "cancel":"cancel", 
+    "students":"students",
+    "addCountries":"Add Country",
+    "addCities":"Add cities",
+    "addStates":"Add States",
+    "addAwards":"Add Awards",
+    "addUsers":"Add User",
+    "addPoster":"Add Poster",
+    "addRecordes":"Add Record",
+    "addUnvarsecites":"Add University"
+    
+
+}

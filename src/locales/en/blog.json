@@ -1,0 +1,8 @@
+{
+    "id": "id",
+    "image": "image",
+    "descr": "description",
+    "created": "created",
+    "updated": "updated",
+    "operations":"operations"
+}

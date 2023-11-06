@@ -1,0 +1,9 @@
+{
+    "operations": "operations",
+    "id": "id",
+    "email": "email",
+    "tel": "tel",
+    "descr": "descr",
+    "created": "created",
+    "updated": "updated"
+}

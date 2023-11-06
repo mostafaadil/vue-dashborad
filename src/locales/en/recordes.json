@@ -1,0 +1,12 @@
+{
+    "operations": "operations",
+    "id": "id",
+    "name": "name",
+    "last_name": "last name",
+    "title": "title",
+    "pages": "pages",
+    "advisors": "advisors",
+    "status": "status",
+    "created": "created",
+    "updated": "updated"
+}

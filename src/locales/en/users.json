@@ -1,0 +1,13 @@
+{
+    "id": "id",
+    "name": "name",
+    "email": "email",
+    "tel": "tel",
+    "pass": "pass",
+    "user_type_id": "user type id",
+    "created": "created",
+    "updated": "updated",    
+    "type":"type",
+    "country_id":"country",
+    "operations":"operations"
+}

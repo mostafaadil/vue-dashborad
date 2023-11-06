@@ -1,0 +1,11 @@
+{
+    "id": "id",
+    "name": "name",
+    "country_id": "country",
+    "city_id": "city ",
+    "state_id": "state",
+    "user_id": "user",
+    "created": "created",
+    "updated": "updated",
+    "operations": "operations"
+}

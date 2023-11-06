@@ -1,0 +1,13 @@
+{
+    "operations":"العمليات",
+    "id": "الرقم",
+    "vendor_id": "vendor id",
+    "image": "صورة",
+    "type": "النوع",
+    "name": "الاسم",
+    "tel": "رقم الهاتف",
+    "email": "email",
+    "payment_method_id": "طريقة الدفع",
+    "created": "تاريخ الانشاء",
+    "updated": "تاريخ التعديل"
+}

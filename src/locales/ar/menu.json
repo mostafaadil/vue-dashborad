@@ -1,0 +1,25 @@
+{
+    "menuitems": {
+       "countries":{
+        "text":"countries"
+       },
+       "states":{
+        "text":"states"
+       },
+       "cites":{
+        "text":"cites"
+       },
+       "posters":{
+        "text":"posters"
+       },
+       "posters":{
+        "text":"records"
+       },
+       "awards":{
+        "text":"awards"
+       },
+       "users":{
+        "text":"users"
+       }
+    }
+}
