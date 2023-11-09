@@ -7,7 +7,7 @@ import './assets/plugins/aos/aos.js'
 import './assets/plugins/fontawesome/css/fontawesome.min.css'
 import './assets/plugins/fontawesome/css/all.min.css'
 import App from "./App.vue";
-import header from './views/frontend/header'
+import header from './views/frontend/header.vue'
 import footer from './views/frontend/footer'
 import Employeeheader from './views/frontend/employer/header'
 import Employeesidebar from './views/frontend/employer/sidebar'
@@ -17,7 +17,7 @@ import Freelancerprojectsidebar from './views/frontend/freelancer/sidebar'
 import Adminheader from './views/admin/header'
 import Adminsidebar from './views/admin/sidebar.vue'
 /************Breadcrumb ************/
-import Breadcrumb from './views/frontend/breadcrumb/about'
+import Breadcrumb from './views/frontend/breadcrumb/about.vue'
 import Breadcrumb1 from './views/frontend/breadcrumb/blankpage'
 /************All components ************/
 import Aboutdetail from './views/frontend/page/about/aboutdetail'

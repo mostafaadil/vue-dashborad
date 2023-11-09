@@ -28,7 +28,7 @@
 								<ul class="breadcrumb">
 									<li class="breadcrumb-item"><router-link to="/admin/index">Home</router-link>
 									</li>
-									<li class="breadcrumb-item active">{{page_name}}</li>
+									<li class="breadcrumb-item active">{{ page_name }}</li>
 								</ul>
 							</div>
 							<div class="col-auto">
@@ -36,7 +36,7 @@
 									data-bs-target="#add-category">
 									<i class="fas fa-plus"></i>
 								</a>
-							
+
 							</div>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 								<div class="row filter-row">
 									<div class="col-sm-6 col-md-3">
 										<div class="form-group">
-											<label>Add {{page_name}}</label>
+											<label>Add {{ page_name }}</label>
 											<input class="form-control" type="text">
 										</div>
 									</div>
@@ -89,55 +89,54 @@
 											<table class="table table-center table-hover mb-0 datatable" id="categories">
 												<thead>
 													<tr>
-													<th scope='col'>id</th>
-<th scope='col'>name</th>
-<th scope='col'>role</th>
-<th scope='col'>result</th>
-<th scope='col'>created</th>
-<th scope='col'>updated</th>
+														<th scope='col'>id</th>
+														<th scope='col'>name</th>
+														<th scope='col'>role</th>
+														<th scope='col'>result</th>
+														<th scope='col'>created</th>
+														<th scope='col'>updated</th>
 
-                          <th scoped="col"> operations</th>
+														<th scoped="col"> operations</th>
 													</tr>
 												</thead>
 												<tr v-for="(app, index) in Awards" :key="app" class="text-center">
-																									<td>{{index+1 }}</td>
+													<td>{{ index + 1 }}</td>
 
-                        <td>{{app.name}}</td><td>{{app.role}}</td><td>{{app.result}}</td><td>{{app.created.split('T')[0]}}</td><td>{{app.updated.split('T')[0]}}</td>
+													<td>{{ app.name }}</td>
+													<td>{{ app.role }}</td>
+													<td>{{ app.result }}</td>
+													<td>{{ app.created.split('T')[0] }}</td>
+													<td>{{ app.updated.split('T')[0] }}</td>
 													<td class="text-end">
-														<button class="btn profile-edit-btn"
-															@click="editAwards(app)" href="javascript: void(0);"
-															role="button" data-bs-toggle="modal"
+														<button class="btn profile-edit-btn" @click="editAwards(app)"
+															href="javascript: void(0);" role="button" data-bs-toggle="modal"
 															data-bs-target="#edit-category"><i
 																class="far fa-edit"></i></button>
-														<a class="btn profile-edit-btn" href="javascript: void(0);" role="button"
-															@click="deleteAwards(app)"><i class="far fa-trash-alt"></i></a>
+														<a class="btn profile-edit-btn" href="javascript: void(0);"
+															role="button" @click="deleteAwards(app)"><i
+																class="far fa-trash-alt"></i></a>
 													</td>
 												</tr>
 											</table>
 
-											<div v-if="tot_pages == 20">
-												<!--   Apps  paginate     -->
-												<ul class="paginate paginate-rounded justify-content-center mb-2">
-													<li class="page-item" :class="{ disabled: page == 1 }">
-														<a class="page-link" href="javascript: void(0);"
-															@click="get(page - 1)" aria-label="Previous">
-															<i class="mdi mdi-chevron-left"></i>
-														</a>
-													</li>
-													<li class="page-item" :class="{ active: p == page }"
-														v-for="p in tot_pages" :key="p">
-														<a class="page-link" href="javascript: void(0);" @click="get(p)">{{
-															p
-														}}</a>
-													</li>
-
-													<li class="page-item" :class="{ disabled: page == total_pages }">
-														<a class="page-link" href="javascript: void(0);"
-															@click="get(page + 1)" aria-label="Next">
-															<i class="mdi mdi-chevron-right"></i>
-														</a>
-													</li>
-												</ul>
+											<div class="row" v-if="tot_pages > 1">
+												<div class="col-md-12">
+													<ul class="paginations freelancer">
+														<li :class="{ disabled: page == 1 }"><a class="page-link"
+																@click="get(parseInt(page) - 1)"
+																href="javascript:void(0);"><i class="fas fa-angle-left"></i>
+																Previous</a></li>
+														<li class="page-item" :class="{ active: p == page }">
+															<input class="form-control text-center" type="number" min="1"
+																v-model="page" :max="tot_pages" @input="get(page)" />
+														</li>
+														<li class="page-item" :class="{ disabled: page == total_pages }">
+															<a @click="get(parseInt(page) + 1)"
+																href="javascript:void(0);">Next
+																<i class="fas fa-angle-right"></i></a>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -172,30 +171,32 @@
 								<input required v-model="awards.name" dir="ltr" class="form-control" type="text">
 								<div class="invalid-feedback"> </div>
 
-							</div><div class="mb-3">
+							</div>
+							<div class="mb-3">
 								<label for="message-text" class="col-form-label">
 									role
 								</label>
 								<input required v-model="awards.role" dir="ltr" class="form-control" type="text">
 								<div class="invalid-feedback"> </div>
 
-							</div><div class="mb-3">
+							</div>
+							<div class="mb-3">
 								<label for="message-text" class="col-form-label">
 									result
 								</label>
 								<input required v-model="awards.result" dir="ltr" class="form-control" type="text">
 								<div class="invalid-feedback"> </div>
 
-							</div>          {
-            model: "poster_awareds",
-            type: "select",
-            options: (() => {
-              return this.poster_awareds.map((data) => {
-                return { value: data.id, label: data.id };
-              });
-            })(),
-            label: "popups.poster_awareds",
-          },
+							</div> {
+							model: "poster_awareds",
+							type: "select",
+							options: (() => {
+							return this.poster_awareds.map((data) => {
+							return { value: data.id, label: data.id };
+							});
+							})(),
+							label: "popups.poster_awareds",
+							},
 
 
 							<div class="mt-4">
@@ -229,30 +230,32 @@
 								<input required v-model="awards.name" dir="ltr" class="form-control" type="text">
 								<div class="invalid-feedback"> </div>
 
-							</div><div class="mb-3">
+							</div>
+							<div class="mb-3">
 								<label for="message-text" class="col-form-label">
 									role
 								</label>
 								<input required v-model="awards.role" dir="ltr" class="form-control" type="text">
 								<div class="invalid-feedback"> </div>
 
-							</div><div class="mb-3">
+							</div>
+							<div class="mb-3">
 								<label for="message-text" class="col-form-label">
 									result
 								</label>
 								<input required v-model="awards.result" dir="ltr" class="form-control" type="text">
 								<div class="invalid-feedback"> </div>
 
-							</div>          {
-            model: "poster_awareds",
-            type: "select",
-            options: (() => {
-              return this.poster_awareds.map((data) => {
-                return { value: data.id, label: data.id };
-              });
-            })(),
-            label: "popups.poster_awareds",
-          },
+							</div> {
+							model: "poster_awareds",
+							type: "select",
+							options: (() => {
+							return this.poster_awareds.map((data) => {
+							return { value: data.id, label: data.id };
+							});
+							})(),
+							label: "popups.poster_awareds",
+							},
 
 
 							<div class="mt-4">
@@ -299,7 +302,7 @@ var state = store._modules.root._children.auth.state;
 export default {
 	data() {
 		return {
-			page_name:"awards",
+			page_name: "awards",
 			Awards: [],
 			states: [],
 			awards: {},
@@ -319,7 +322,7 @@ export default {
 				var data = document.getElementsByClassName("modal fade custom-modal show")
 				data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
 				document.getElementsByClassName("modal-backdrop fade show")[0].replaceWith("modal-backdrop fade show", "modal-backdrop fade hide")
-		
+				window.location.reload();
 				this.get(this.page);
 			});
 		},
@@ -334,7 +337,7 @@ export default {
 				var data = document.getElementsByClassName("modal fade custom-modal show")
 				data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
 				document.getElementsByClassName("modal-backdrop fade show")[0].replaceWith("modal-backdrop fade show", "modal-backdrop fade hide")
-		
+				window.location.reload();
 				this.get(this.page);
 			});
 		},
@@ -384,7 +387,7 @@ export default {
 					this.tot_pages = Math.ceil(res.tot / this.limit);
 					this.Awards = res.data;
 					console.log("---------------", this.Awards)
-					
+
 
 
 				});

@@ -24,94 +24,10 @@
                 </div>
                 <ul class="main-nav">
                     <li class="has-submenu" :class="homeMenu ? 'active' : 'notactive'">
-                        <a>Home <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li :class="currentPath == '/index' ? 'active' : 'notactive'"><router-link to="/index">Home</router-link></li>
-                            <li :class="currentPath == 'index-two' ? 'active' : 'notactive'"><router-link to="/index-two">Home 2</router-link></li>
-                            <li :class="currentPath == 'index-three' ? 'active' : 'notactive'"><router-link to="/index-three">Home 3</router-link></li>
-                            <li :class="currentPath == 'index-four' ? 'active' : 'notactive'"><router-link to="/index-four">Home 4</router-link></li>
-                            <li :class="currentPath == 'index-five' ? 'active' : 'notactive'"><router-link to="/index-five">Home 5</router-link></li>
-                        </ul>
+                        <router-link to="/" target="_blank">Home </router-link>
+                          
                     </li>
-                    <li class="has-submenu" :class="patientsMenu ? 'active' : 'notactive'">
-                        <a href="">For Employers<i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li class="has-submenu" :class="currentPath == 'developer' ? 'active' : 'notactive'">
-                                <a href="javascript:void(0);">Freelancer</a>
-                                <ul class="submenu">
-                                    <li :class="currentPath == 'developer' ? 'active' : 'notactive'"><router-link to="/developer">Freelancer</router-link></li>
-                                    <li><router-link to="/developer-details">Freelancer Details</router-link></li>
-                                </ul>
-                            </li>
-                            <li :class="currentPath == 'dashboard' ? 'active' : 'notactive'"><router-link to="/dashboard">Dashboard</router-link></li>	
-                            <li :class="currentPath == 'company-profile' ? 'active' : 'notactive'"><router-link to="/company-profile">My Profile</router-link></li>	
-                            <li :class="currentPath == 'company-details' ? 'active' : 'notactive'"><router-link to="/company-details">Company Details</router-link></li>	
-                            <li :class="currentPath == 'manage-projects' || currentPath == 'cancelled-projects' || currentPath == 'completed-projects' ? 'active' : 'notactive'"><router-link to="/manage-projects">Projects</router-link></li>
-                            <li :class="currentPath == 'favourites' || currentPath == 'favourites-list' ? 'active' : 'notactive'"><router-link to="/favourites">Favourites</router-link></li>
-                            <li :class="currentPath == 'membership-plans' ? 'active' : 'notactive'"><router-link to="/membership-plans">Membership</router-link></li>
-                            <li :class="currentPath == 'milestones' || currentPath == 'change-password' ? 'active' : 'notactive'"><router-link to="/milestones">Milestones</router-link></li>
-                            <li :class="currentPath == 'chats' ? 'active' : 'notactive'"><router-link to="/chats">Chats</router-link></li>
-                            <li :class="currentPath == 'review' ? 'active' : 'notactive'"><router-link to="/review">Review</router-link></li>			
-                            <li :class="currentPath == 'deposit-funds' ? 'active' : 'notactive'"><router-link to="/deposit-funds">Payments</router-link></li>							
-                            <li :class="currentPath == 'verify-identity' ? 'active' : 'notactive'"><router-link to="/verify-identity">Verify Identity</router-link></li>								
-                            <li :class="currentPath == 'profile-settings' || currentPath == 'delete-account' ? 'active' : 'notactive'"><router-link to="/profile-settings"  :class="currentPath == 'profile-settings' || currentPath == 'delete-account' ? 'active' : 'notactive'">Settings</router-link></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu" :class="freelancerMenu ? 'active' : 'notactive'">
-                        <a href="">For Freelancer<i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li class="has-submenu" :class="currentPath == 'project' || currentPath == 'project-details' ? 'active' : 'notactive'">
-                                <a href="javascript:void(0);">Projects</a>
-                                <ul class="submenu">
-                                    <li :class="currentPath == 'project' ? 'active' : 'notactive'"><router-link to="/project">Projects</router-link></li>
-                                    <li :class="currentPath == 'project-details' ? 'active' : 'notactive'"><router-link to="/project-details">Project Details</router-link></li>
-                                </ul>
-                            </li>
-                            <li :class="currentPath == 'freelancer-dashboard' ? 'active' : 'notactive'"><router-link to="/freelancer-dashboard">Dashboard</router-link></li>
-                            <li :class="currentPath == 'developer-profile' || currentPath == 'freelancer-profile' ? 'active' : 'notactive'"><router-link to="/developer-profile">My Profile</router-link></li>	
-                            <li :class="currentPath == 'developer-details' ? 'active' : 'notactive'"><router-link to="/developer-details">Freelancer Details</router-link></li>
-                            <li :class="currentPath == 'freelancer-invitations' || currentPath == 'freelancer-project-proposals' || currentPath == 'freelancer-cancelled-projects' || currentPath == 'freelancer-completed-projects' || currentPath == 'freelancer-ongoing-projects' ? 'active' : 'notactive'"><router-link to="/freelancer-project-proposals">Projects</router-link></li>
-                            <li :class="currentPath == 'freelancer-favourites' ? 'active' : 'notactive'"><router-link to="/freelancer-favourites">Favourites</router-link></li>
-                            <li :class="currentPath == 'freelancer-membership' ? 'active' : 'notactive'"><router-link to="/freelancer-membership">Membership</router-link></li>
-                            <li :class="currentPath == 'freelancer-change-password' ? 'active' : 'notactive'"><router-link to="/freelancer-change-password">Change Password</router-link></li>
-                            <li :class="currentPath == 'freelancer-chats' ? 'active' : 'notactive'"><router-link to="/freelancer-chats">Chats</router-link></li>
-                            <li :class="currentPath == 'freelancer-review' ? 'active' : 'notactive'"><router-link to="/freelancer-review">Review</router-link></li>			
-                            <li :class="currentPath == 'freelancer-withdraw-money' || currentPath == 'freelancer-portfolio' || currentPath == 'freelancer-transaction-history' ? 'active' : 'notactive'"><router-link to="/freelancer-withdraw-money">Payments</router-link></li>							
-                            <li :class="currentPath == 'freelancer-verify-identity' ? 'active' : 'notactive'"><router-link to="/freelancer-verify-identity">Verify Identity</router-link></li>				
-                            <li :class="currentPath == 'freelancer-profile-settings' || currentPath == 'freelancer-delete-account' ? 'active' : 'notactive'"><router-link to="/freelancer-profile-settings">Settings</router-link></li>				
-                        </ul>
-                    </li>
-                    <li class="has-submenu" :class="pagesMenu ? 'active' : 'notactive'">
-                        <a href="">Pages <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li :class="currentPath == 'about' ? 'active' : 'notactive'"><router-link to="/about">About us</router-link></li>
-                            <li :class="currentPath == 'blank-page' ? 'active' : 'notactive'"><router-link to="/blank-page">Starter Page</router-link></li>
-                            <li :class="currentPath == '404-page' ? 'active' : 'notactive'"><router-link to="/404-page">404 Page</router-link></li>
-                            <li class="has-submenu" :class="currentPath == 'freelancer-invoices' || currentPath == 'view-invoice' ? 'active' : 'notactive'">
-                                <a>Invoices</a>
-                                <ul class="submenu">
-                                    <li :class="currentPath == 'freelancer-invoices' ? 'active' : 'notactive'"><router-link to="/freelancer-invoices">Invoices</router-link></li>
-                                    <li :class="currentPath == 'view-invoice' ? 'active' : 'notactive'"><router-link to="/view-invoice">Invoice View</router-link></li>
-                                </ul>
-                            </li>
-                            <li :class="currentPath == 'login' ? 'active' : 'notactive'"><router-link to="/login">Login</router-link></li>
-                            <li :class="currentPath == 'register' ? 'active' : 'notactive'"><router-link to="/register">Register</router-link></li>
-                            <li :class="currentPath == 'onboard-screen' ? 'active' : 'notactive'"><router-link to="/onboard-screen">Onboard Screen</router-link></li>
-                            <li :class="currentPath == 'forgot-password' ? 'active' : 'notactive'"><router-link to="/forgot-password">Forgot Password</router-link></li>
-                            <li><router-link to="/change-password">Change Password</router-link></li>									
-                        </ul>
-                    </li>
-                    <li class="has-submenu" :class="BlogMenu ? 'active' : 'notactive'">
-                        <a href="">Blog <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li :class="currentPath == 'blog-list' ? 'active' : 'notactive'"><router-link to="/blog-list">Blog List</router-link></li>
-                            <li :class="currentPath == 'blog-grid' ? 'active' : 'notactive'"><router-link to="/blog-grid">Blog Grid</router-link></li>
-                            <li :class="currentPath == 'blog-details' ? 'active' : 'notactive'"><router-link to="/blog-details">Blog Details</router-link></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <router-link to="/admin/login" target="_blank">Admin</router-link>
-                    </li>
+                   
                 </ul>
             </div>		 
             <ul class="nav header-navbar-rht">	
@@ -137,7 +53,6 @@
                         <router-link class="dropdown-item" to="/"><i class="material-icons">power_settings_new</i> Logout</router-link>
                     </div>
                 </li>
-                <li><router-link to="/post-project" class="login-btn">Post a Project </router-link></li>
             </ul>
         </nav>
     </header>

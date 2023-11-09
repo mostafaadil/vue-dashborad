@@ -5,7 +5,7 @@ import Index4 from '../views/frontend/Index4'
 import Index3 from '../views/frontend/Index3'
 import Index2 from '../views/frontend/Index2'
 import error404 from '../views/frontend/page/404page'
-import About from '../views/frontend/page/about/about'
+import About from '../views/frontend/page/about/about.vue'
 import Blankpage from '../views/frontend/page/blankpage'
 import Blogdetail from '../views/frontend/blog/detail/detail'
 import Bloggrid from '../views/frontend/blog/grid/grid'
@@ -297,31 +297,6 @@ const routes = [
     {
       path: '/',
       name: '',
-      component: Index
-    },
-    {
-      path: '/index-five',
-      name: 'index-five',
-      component: Index5
-    },
-    {
-      path: '/index-four',
-      name: 'index-four',
-      component: Index4
-    },
-    {
-      path: '/index-three',
-      name: 'index-three',
-      component: Index3
-    },
-    {
-      path: '/index-two',
-      name: 'index-two',
-      component: Index2
-    },
-    {
-      path: '/index',
-      name: 'index',
       component: Index
     },
     {
@@ -1111,6 +1086,6 @@ export const router = createRouter({
     routes
 });
 
-router.beforeEach((to, from) => {
-  console.log({from: from?.fullPath, to: to?.fullPath,})
-})
+// router.beforeEach((to, from) => {
+//   console.log({from: from?.fullPath, to: to?.fullPath,})
+// })

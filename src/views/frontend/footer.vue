@@ -4,7 +4,6 @@
 <footer class="footer">
     <div class="footer-top aos" data-aos="fade-up">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-3">
                     <h2 class="footer-title">Office Address</h2>
@@ -39,7 +38,6 @@
                         <ul>
                             <li><router-link to="/chats">Chat</router-link></li>
                             <li><router-link to="/faq">Faq</router-link></li>
-                            <li><router-link to="/review">Reviews</router-link></li>
                             <li><router-link to="/privacy-policy">Privacy Policy</router-link></li>
                             <li><router-link to="/term-condition">Terms of use</router-link></li>
                         </ul>

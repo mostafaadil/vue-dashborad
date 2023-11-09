@@ -118,39 +118,33 @@
 													</td>
 
 													<td class="d-flex">
-														<a v-if="app.status == 1" 
-															@click="changeStatus(app)" href="javascript: void(0);"
-															role="button"><span class="btn btn-danger mx-1">reject</span></a>
-														<a v-if="app.status == 0" 
-															@click="changeStatus(app)" href="javascript: void(0);"
-															role="button"><span class="btn btn-success mx-1">approve</span> </a>
+														<a v-if="app.status == 1" @click="changeStatus(app)"
+															href="javascript: void(0);" role="button"><span
+																class="btn btn-danger mx-1">reject</span></a>
+														<a v-if="app.status == 0" @click="changeStatus(app)"
+															href="javascript: void(0);" role="button"><span
+																class="btn btn-success mx-1">approve</span> </a>
 													</td>
 												</tr>
 											</table>
 
-											<div v-if="tot_pages == 20">
-												<!--   Apps  paginate     -->
-												<ul class="paginate paginate-rounded justify-content-center mb-2">
-													<li class="page-item" :class="{ disabled: page == 1 }">
-														<a class="page-link" href="javascript: void(0);"
-															@click="get(page - 1)" aria-label="Previous">
-															<i class="mdi mdi-chevron-left"></i>
-														</a>
-													</li>
-													<li class="page-item" :class="{ active: p == page }"
-														v-for="p in tot_pages" :key="p">
-														<a class="page-link" href="javascript: void(0);" @click="get(p)">{{
-															p
-														}}</a>
-													</li>
-
-													<li class="page-item" :class="{ disabled: page == total_pages }">
-														<a class="page-link" href="javascript: void(0);"
-															@click="get(page + 1)" aria-label="Next">
-															<i class="mdi mdi-chevron-right"></i>
-														</a>
-													</li>
-												</ul>
+											<div class="row" v-if="tot_pages > 1">
+												<div class="col-md-12">
+													<ul class="paginations freelancer">
+														<li :class="{ disabled: page == 1 }"><a class="page-link"
+																@click="get(parseInt(page) - 1)" href="javascript:void(0);"><i
+																	class="fas fa-angle-left"></i>
+																Previous</a></li>
+														<li class="page-item" :class="{ active: p == page }">
+															<input class="form-control text-center" type="number" min="1"
+																v-model="page" :max="tot_pages" @input="get(page)" />
+														</li>
+														<li class="page-item" :class="{ disabled: page == total_pages }">
+															<a @click="get(parseInt(page) + 1)" href="javascript:void(0);">Next
+																<i class="fas fa-angle-right"></i></a>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
 									</div>

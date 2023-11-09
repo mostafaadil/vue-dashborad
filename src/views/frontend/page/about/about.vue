@@ -3,7 +3,7 @@
        <!-- Main Wrapper -->
         <div class="main-wrapper">
 			<!-- Header -->
-                <layout-header />
+            <layout-header />
 			<!-- /Header -->
 
             <!-- Breadcrumb -->

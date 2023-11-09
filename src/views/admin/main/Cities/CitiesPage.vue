@@ -106,40 +106,35 @@
 													<td>{{ app.created.split('T')[0] }}</td>
 													<td>{{ app.updated.split('T')[0] }}</td>
 													<td class="text-end">
-														<button class="btn profile-edit-btn"
-															@click="editCities(app)" href="javascript: void(0);"
-															role="button" data-bs-toggle="modal"
+														<button class="btn profile-edit-btn" @click="editCities(app)"
+															href="javascript: void(0);" role="button" data-bs-toggle="modal"
 															data-bs-target="#edit-category"><i
 																class="far fa-edit"></i></button>
-														<a class="btn profile-edit-btn" href="javascript: void(0);" role="button"
-															@click="deleteCities(app)"><i class="far fa-trash-alt"></i></a>
+														<a class="btn profile-edit-btn" href="javascript: void(0);"
+															role="button" @click="deleteCities(app)"><i
+																class="far fa-trash-alt"></i></a>
 													</td>
 												</tr>
 											</table>
 
-											<div v-if="tot_pages == 20">
-												<!--   Apps  paginate     -->
-												<ul class="paginate paginate-rounded justify-content-center mb-2">
-													<li class="page-item" :class="{ disabled: page == 1 }">
-														<a class="page-link" href="javascript: void(0);"
-															@click="get(page - 1)" aria-label="Previous">
-															<i class="mdi mdi-chevron-left"></i>
-														</a>
-													</li>
-													<li class="page-item" :class="{ active: p == page }"
-														v-for="p in tot_pages" :key="p">
-														<a class="page-link" href="javascript: void(0);" @click="get(p)">{{
-															p
-														}}</a>
-													</li>
-
-													<li class="page-item" :class="{ disabled: page == total_pages }">
-														<a class="page-link" href="javascript: void(0);"
-															@click="get(page + 1)" aria-label="Next">
-															<i class="mdi mdi-chevron-right"></i>
-														</a>
-													</li>
-												</ul>
+											<div class="row" v-if="tot_pages > 1">
+												<div class="col-md-12">
+													<ul class="paginations freelancer">
+														<li :class="{ disabled: page == 1 }"><a class="page-link"
+																@click="get(parseInt(page) - 1)"
+																href="javascript:void(0);"><i class="fas fa-angle-left"></i>
+																Previous</a></li>
+														<li class="page-item" :class="{ active: p == page }">
+															<input class="form-control text-center" type="number" min="1"
+																v-model="page" :max="tot_pages" @input="get(page)" />
+														</li>
+														<li class="page-item" :class="{ disabled: page == total_pages }">
+															<a @click="get(parseInt(page) + 1)"
+																href="javascript:void(0);">Next
+																<i class="fas fa-angle-right"></i></a>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -171,7 +166,7 @@
 								<label for="message-text" class="col-form-label">
 									state
 								</label>
-								<select v-model="cities.state_id"  class="form-control">
+								<select v-model="cities.state_id" class="form-control">
 									<option v-for="state in states" :key="state" :value="state.id">{{ state.name }}</option>
 								</select>
 
@@ -224,7 +219,7 @@
 								<input required v-model="cities.name" dir="ltr" class="form-control" type="text">
 								<div class="invalid-feedback"> </div>
 
-								<select v-model="cities.state_id"  class="form-control">
+								<select v-model="cities.state_id" class="form-control">
 									<option v-for="state in states" :key="state" :value="state.id">{{ state.name }}</option>
 								</select>
 
@@ -294,7 +289,8 @@ export default {
 				var data = document.getElementsByClassName("modal fade custom-modal show")
 				data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
 				document.getElementsByClassName("modal-backdrop fade show")[0].replaceWith("modal-backdrop fade show", "modal-backdrop fade hide")
-		
+				window.location.reload();
+
 				this.get(this.page);
 			});
 		},
@@ -309,7 +305,8 @@ export default {
 				var data = document.getElementsByClassName("modal fade custom-modal show")
 				data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
 				document.getElementsByClassName("modal-backdrop fade show")[0].replaceWith("modal-backdrop fade show", "modal-backdrop fade hide")
-		
+				window.location.reload();
+
 				this.get(this.page);
 			});
 		},
