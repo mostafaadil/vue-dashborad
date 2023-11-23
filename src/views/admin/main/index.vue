@@ -4,7 +4,6 @@
         <div class="main-wrapper">
             <layout-adminheader></layout-adminheader>
             <layout-adminsidebar></layout-adminsidebar>
-
             <!-- Page Wrapper -->
             <div class="page-wrapper">
                 <div class="content container-fluid">
@@ -33,7 +32,7 @@
                                     <div class="card wizard-card flex-fill">
                                         <div class="card-body">
                                             <p class="text-primary mt-0 mb-2">Posters</p>
-                                            <h5>info.posters</h5>
+                                            <h5>{{ data?.posters }}</h5>
                                             <p><router-link to="/admin/users">view details</router-link></p>
                                             <span class="dash-widget-icon bg-1">
                                                 <i class="fas fa-users"></i>
@@ -45,7 +44,7 @@
                                     <div class="card wizard-card flex-fill">
                                         <div class="card-body">
                                             <p class="text-primary mt-0 mb-2">Awards numbers</p>
-                                            <h5>{{info?.awards}}</h5>
+                                            <h5>{{ data?.awards }}</h5>
                                             <p><router-link to="/admin/projects">view details</router-link></p>
 
                                             <span class="dash-widget-icon bg-1">
@@ -58,7 +57,7 @@
                                     <div class="card wizard-card flex-fill">
                                         <div class="card-body">
                                             <p class="text-primary mt-0 mb-2">Records </p>
-                                            <h5>info.records</h5>
+                                            <h5>{{ data?.records }}</h5>
                                             <p><router-link to="/admin/projects">view details</router-link></p>
 
                                             <span class="dash-widget-icon bg-1">
@@ -1400,226 +1399,228 @@
                                                                 <i class="fas fa-star text-primary"></i>
                                                                 <i class="fas fa-star text-primary"></i>
                                                                 <i class="fas fa-star text-muted"></i>
-                                                        </td>
-                                                        <td>
-                                                            JAVA
-                                                        </td>
-                                                        <td class="text-end text-nowrap">
-                                                            <a href="javascript:void(0);"
-                                                                class=" btn btn-approve text-white me-2">Approve</a>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-disable">Enable</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="form-check custom-checkbox">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="customCheck28">
-                                                                <label class="form-check-label"
-                                                                    for="customCheck28"></label>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h2 class="table-avatar">
-                                                                <router-link to="/admin/profile"><img
-                                                                        class="avatar-img rounded-circle me-2"
-                                                                        src="../../../assets/admin-img/profiles/avatar-02.jpg"
-                                                                        alt="User Image">
-                                                                    Bess Twishes
-                                                                </router-link>
-                                                            </h2>
-                                                        </td>
-                                                        <td>
-                                                            Designer
-                                                        </td>
-                                                        <td>
-                                                            <div class="desc-info">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                Volutpat orci enim, mattis nibh aliquam dui, nibh
-                                                                faucibus aenean. Eget volutpat
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-nowrap mapgridrating1">
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-muted"></i>
-                                                        </td>
-                                                        <td>
-                                                            .NET
-                                                        </td>
-                                                        <td class="text-end text-nowrap">
-                                                            <a href="javascript:void(0);"
-                                                                class=" btn btn-approve text-white me-2">Approve</a>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-disable">Enable</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="form-check custom-checkbox">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="customCheck29">
-                                                                <label class="form-check-label"
-                                                                    for="customCheck29"></label>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h2 class="table-avatar">
-                                                                <router-link to="/admin/profile"><img
-                                                                        class="avatar-img rounded-circle me-2"
-                                                                        src="../../../assets/admin-img/profiles/avatar-05.jpg"
-                                                                        alt="User Image">
-                                                                    Rayan Lester
-                                                                </router-link>
-                                                            </h2>
-                                                        </td>
-                                                        <td>
-                                                            Technial Manager
-                                                        </td>
-                                                        <td>
-                                                            <div class="desc-info">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                Volutpat orci enim, mattis nibh aliquam dui, nibh
-                                                                faucibus aenean. Eget volutpat
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-nowrap mapgridrating1">
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-muted"></i>
-                                                        </td>
-                                                        <td>
-                                                            Python
-                                                        </td>
-                                                        <td class="text-end text-nowrap">
-                                                            <a href="javascript:void(0);"
-                                                                class=" btn btn-approve text-white me-2">Approve</a>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-disable">Enable</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="form-check custom-checkbox">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="customCheck30">
-                                                                <label class="form-check-label"
-                                                                    for="customCheck30"></label>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <h2 class="table-avatar">
-                                                                <router-link to="/admin/profile"><img
-                                                                        class="avatar-img rounded-circle me-2"
-                                                                        src="../../../assets/admin-img/profiles/avatar-06.jpg"
-                                                                        alt="User Image">
-                                                                    Sarah Alexander
-                                                                </router-link>
-                                                            </h2>
-                                                        </td>
-                                                        <td>
-                                                            Designer
-                                                        </td>
-                                                        <td>
-                                                            <div class="desc-info">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                                Volutpat orci enim, mattis nibh aliquam dui, nibh
-                                                                faucibus aenean. Eget volutpat
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-nowrap mapgridrating1">
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-primary"></i>
-                                                            <i class="fas fa-star text-muted"></i>
-                                                        </td>
-                                                        <td>
-                                                            Golang
-                                                        </td>
-                                                        <td class="text-end text-nowrap">
-                                                            <a href="javascript:void(0);"
-                                                                class=" btn btn-approve text-white me-2">Approve</a>
-                                                            <a href="javascript:void(0);"
-                                                                class="btn btn-disable">Enable</a>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                            <td>
+                                                                JAVA
+                                                            </td>
+                                                            <td class="text-end text-nowrap">
+                                                                <a href="javascript:void(0);"
+                                                                    class=" btn btn-approve text-white me-2">Approve</a>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-disable">Enable</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check custom-checkbox">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="customCheck28">
+                                                                    <label class="form-check-label"
+                                                                        for="customCheck28"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <h2 class="table-avatar">
+                                                                    <router-link to="/admin/profile"><img
+                                                                            class="avatar-img rounded-circle me-2"
+                                                                            src="../../../assets/admin-img/profiles/avatar-02.jpg"
+                                                                            alt="User Image">
+                                                                        Bess Twishes
+                                                                    </router-link>
+                                                                </h2>
+                                                            </td>
+                                                            <td>
+                                                                Designer
+                                                            </td>
+                                                            <td>
+                                                                <div class="desc-info">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Volutpat orci enim, mattis nibh aliquam dui, nibh
+                                                                    faucibus aenean. Eget volutpat
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-nowrap mapgridrating1">
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-muted"></i>
+                                                            </td>
+                                                            <td>
+                                                                .NET
+                                                            </td>
+                                                            <td class="text-end text-nowrap">
+                                                                <a href="javascript:void(0);"
+                                                                    class=" btn btn-approve text-white me-2">Approve</a>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-disable">Enable</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check custom-checkbox">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="customCheck29">
+                                                                    <label class="form-check-label"
+                                                                        for="customCheck29"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <h2 class="table-avatar">
+                                                                    <router-link to="/admin/profile"><img
+                                                                            class="avatar-img rounded-circle me-2"
+                                                                            src="../../../assets/admin-img/profiles/avatar-05.jpg"
+                                                                            alt="User Image">
+                                                                        Rayan Lester
+                                                                    </router-link>
+                                                                </h2>
+                                                            </td>
+                                                            <td>
+                                                                Technial Manager
+                                                            </td>
+                                                            <td>
+                                                                <div class="desc-info">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Volutpat orci enim, mattis nibh aliquam dui, nibh
+                                                                    faucibus aenean. Eget volutpat
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-nowrap mapgridrating1">
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-muted"></i>
+                                                            </td>
+                                                            <td>
+                                                                Python
+                                                            </td>
+                                                            <td class="text-end text-nowrap">
+                                                                <a href="javascript:void(0);"
+                                                                    class=" btn btn-approve text-white me-2">Approve</a>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-disable">Enable</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check custom-checkbox">
+                                                                    <input type="checkbox" class="form-check-input"
+                                                                        id="customCheck30">
+                                                                    <label class="form-check-label"
+                                                                        for="customCheck30"></label>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <h2 class="table-avatar">
+                                                                    <router-link to="/admin/profile"><img
+                                                                            class="avatar-img rounded-circle me-2"
+                                                                            src="../../../assets/admin-img/profiles/avatar-06.jpg"
+                                                                            alt="User Image">
+                                                                        Sarah Alexander
+                                                                    </router-link>
+                                                                </h2>
+                                                            </td>
+                                                            <td>
+                                                                Designer
+                                                            </td>
+                                                            <td>
+                                                                <div class="desc-info">
+                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                    Volutpat orci enim, mattis nibh aliquam dui, nibh
+                                                                    faucibus aenean. Eget volutpat
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-nowrap mapgridrating1">
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-primary"></i>
+                                                                <i class="fas fa-star text-muted"></i>
+                                                            </td>
+                                                            <td>
+                                                                Golang
+                                                            </td>
+                                                            <td class="text-end text-nowrap">
+                                                                <a href="javascript:void(0);"
+                                                                    class=" btn btn-approve text-white me-2">Approve</a>
+                                                                <a href="javascript:void(0);"
+                                                                    class="btn btn-disable">Enable</a>
+                                                            </td>
+                                                        </tr>
 
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div role="tabpanel" id="tab-7" class="tab-pane fade">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-hover datatable">
-                                                <thead>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th>Profile</th>
-                                                        <th>Designation</th>
-                                                        <th>comments</th>
-                                                        <th>Stars</th>
-                                                        <th>Category</th>
-                                                        <th class="text-end">Actions</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
+                                        <div role="tabpanel" id="tab-7" class="tab-pane fade">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover datatable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Profile</th>
+                                                            <th>Designation</th>
+                                                            <th>comments</th>
+                                                            <th>Stars</th>
+                                                            <th>Category</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+                <!-- /Page Wrapper -->
+
             </div>
-            <!-- /Page Wrapper -->
+            <!-- /Main Wrapper -->
 
         </div>
-        <!-- /Main Wrapper -->
 
     </div>
-
-</div></template>
+</template>
 <script>
 import ApexCharts from 'apexcharts'
 import util from '../../../assets/utils/util'
 
 export default {
     mounted() {
-        let areaChart = new ApexCharts(
-            document.querySelector("#chart"),
-            this.revenueOptions
-        );
-        areaChart.render();
-
-        util.datatable('#adminindex')
-        $(document).on('click', '#filter_search', function () {
-            $('#filter_inputs').slideToggle("slow");
-        });
+        if (localStorage.getItem('admin_reloaded')) {
+            // The page was just admin_reloaded. Clear the value from local storage
+            // so that it will reload the next time this page is visited.
+            localStorage.removeItem('admin_reloaded');
+        } else {
+            // Set a flag so that we know not to reload the page twice.
+            localStorage.setItem('admin_reloaded', '1');
+            location.reload();
+        }
     },
     methods: {
+        get() {
+            this.http
+                .post("users/dashboard",
+                )
+                .then((res) => {
+                    this.data = res.data;
+                    console.log("1245", this.data)
+                });
+
+        }
     },
     data() {
-        info:{}
+        data: { }
+        counter: 0
     },
     created() {
-        this.http
-            .post("users/dashboard",
-            )
-            .then((res) => {
-                this.info = res.data;
-                console.log("1245",this.info)
-            });
 
-      
-
-
+        this.get()
     }
 }
 </script>

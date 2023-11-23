@@ -25,25 +25,38 @@
                 </div>
                 <ul class="main-nav">
                     <li class="has-submenu" :class="homeMenu ? 'active' : 'notactive'">
-                        <a>Home</a>
-                       
+                        <router-link to="/" >Home</router-link>
+
                     </li>
                     <li>
-                        <router-link to="/about" target="_blank">About Us </router-link>
+                        <router-link to="/about" >About Us </router-link>
                     </li>
 
                     <li>
-                        <router-link to="/faq" target="_blank">Faq</router-link>
+                        <router-link to="/submit-data" >Submit Data </router-link>
                     </li>
                     <li>
-                        <router-link to="/admin/login" target="_blank">Admin</router-link>
+                        <router-link to="/contact-us" >Contact Us </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/extrema" >Extrema </router-link>
+                    </li>
+
+                    <li>
+                        <router-link to="/mission" >Mission </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/faq" >Faq</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/admin/login" >Admin</router-link>
                     </li>
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
-                <li><router-link to="/register" class="reg-btn"><i class="fas fa-user"></i> Register</router-link></li>
-                <li><router-link to="/login" class="log-btn"><i class="fas fa-lock"></i> Login</router-link></li>
-                <li><router-link to="/post-project" class="login-btn">Post a Project </router-link></li>
+                <li><router-link to="/admin/register" class="reg-btn"><i class="fas fa-user"></i> Register</router-link>
+                </li>
+                <li><router-link to="/admin/login" class="log-btn"><i class="fas fa-lock"></i> Login</router-link></li>
             </ul>
         </nav>
     </header>
@@ -71,29 +84,37 @@
                     </a>
                 </div>
                 <ul class="main-nav">
+                    <li class="has-submenu" :class="homeMenu ? 'active' : 'notactive'">
+                        <router-link to="/" >Home </router-link>
 
-                    <ul class="main-nav">
-                        <li class="has-submenu" :class="homeMenu ? 'active' : 'notactive'">
-                            <router-link to="/" target="_blank">Home </router-link>
-                        
-                         
-                        </li>
-                        <li>
-                            <router-link to="/about" target="_blank">About Us </router-link>
-                        </li>
+                    </li>
+                    <li>
+                        <router-link to="/about" >About Us </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/posters" >Posters</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/submit-data" >Submit Data </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/extrema" >Extrema </router-link>
+                    </li>
 
-                        <li>
-                            <router-link to="/faq" target="_blank">Faq</router-link>
-                        </li>
-                        <li>
-                            <router-link to="/admin/login" target="_blank">Admin</router-link>
-                        </li>
-                    </ul>
+                    <li>
+                        <router-link to="/mission" >Mission </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/faq" >Faq</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/admin/login" >Admin</router-link>
+                    </li>
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
                 <li><router-link to="/register" class="reg-btn"><i class="fas fa-user"></i> Register</router-link></li>
-                <li><router-link to="/login" class="log-btn"><i class="fas fa-lock"></i> Login</router-link></li>
+                <li><router-link to="/admin/login" class="log-btn"><i class="fas fa-lock"></i> Login</router-link></li>
             </ul>
         </nav>
     </header>

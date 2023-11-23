@@ -122,6 +122,8 @@
 											<div class="row" v-if="tot_pages > 1">
 												<div class="col-md-12">
 													<ul class="paginations freelancer">
+														<li class="page-item">{{ page }}/{{ tot_pages }}</li>
+
 														<li :class="{ disabled: page == 1 }"><a class="page-link"
 																@click="get(page - 1)" href="javascript:void(0);"><i
 																	class="fas fa-angle-left"></i>

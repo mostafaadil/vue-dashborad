@@ -3,8 +3,12 @@
 export const state = {
   currentUser: JSON.parse(localStorage.getItem("userData")),
   token: null,
+  // baseUrl: "https://api.innovix.cloud/api/",
+  // baseMediaUrl: "https://api.innovix.cloud/",
+
   baseUrl: "http://localhost:5000/api/",
-  baseMediaUrl: "http://localhost:5000/api/",
+  baseMediaUrl: "http://localhost:5000/",
+
   autoLogin: false,
   user_role: {
     administrator: false,

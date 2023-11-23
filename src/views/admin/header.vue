@@ -127,7 +127,7 @@
                 <div class="dropdown-menu">
                     <router-link class="dropdown-item" to="/admin/profile"><i data-feather="user" class="me-1"></i> Profile</router-link>
                     <router-link class="dropdown-item" to="/admin/settings"><i data-feather="settings" class="me-1"></i> Settings</router-link>
-                    <router-link class="dropdown-item" to="/admin/login"><i data-feather="log-out" class="me-1"></i> Logout</router-link>
+                    <a href="javascript:void(0);" class="dropdown-item"  @click="logout()"><i data-feather="log-out" class="me-1"></i> Logout</a>
                 </div>
             </li>
             <!-- /User Menu -->
@@ -141,6 +141,13 @@
 <script>
 
 export default {
+
+    methods: {
+        logout() {
+            localStorage.removeItem("currentUser")
+            router.push("/")
+        }
+    },
     mounted() {
         var $wrapper = $('.main-wrapper');
         $(window).on('scroll', function () {

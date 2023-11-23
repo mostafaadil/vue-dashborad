@@ -9,10 +9,10 @@ import './assets/plugins/fontawesome/css/all.min.css'
 import App from "./App.vue";
 import header from './views/frontend/header.vue'
 import footer from './views/frontend/footer'
-import Employeeheader from './views/frontend/employer/header'
+import Employeeheader from './views/frontend/employer/header.vue'
 import Employeesidebar from './views/frontend/employer/sidebar'
 import Accountheader from './views/frontend/employer/accountheader'
-import Freelancerprojectheader from './views/frontend/freelancer/header'
+import Freelancerprojectheader from './views/frontend/freelancer/header.vue'
 import Freelancerprojectsidebar from './views/frontend/freelancer/sidebar'
 import Adminheader from './views/admin/header'
 import Adminsidebar from './views/admin/sidebar.vue'
@@ -20,9 +20,9 @@ import Adminsidebar from './views/admin/sidebar.vue'
 import Breadcrumb from './views/frontend/breadcrumb/about.vue'
 import Breadcrumb1 from './views/frontend/breadcrumb/blankpage'
 /************All components ************/
-import Aboutdetail from './views/frontend/page/about/aboutdetail'
+import Aboutdetail from './views/frontend/page/about/aboutdetail.vue'
 import Counter from './views/frontend/page/about/counter'
-import Review from './views/frontend/page/about/review'
+import Review from './views/frontend/page/about/review.vue'
 import Agency from './views/frontend/page/about/agency'
 import Blogsidebar from './views/frontend/blog/blogsidebar'
 import Blogdetailcontent from './views/frontend/blog/detail/detailcontent'
@@ -106,7 +106,6 @@ app.component('layout-adminsidebar', Adminsidebar)
 /*********Breadcrumn ***********/
 app.component('breadcrumb', Breadcrumb);
 app.component('Breadcrumb1', Breadcrumb1);
-
 /*********All components *********/
 app.component('aboutdetail', Aboutdetail);
 app.component('counter', Counter);
@@ -142,7 +141,6 @@ app.component('editprojectcontent', Editcontent);
 app.component('employeefiletab', Employeetab);
 app.component('freelancerprojecttab', Freelancerprojecttab);
 app.component('adminmodal', Adminmodal);
-
 
 
 app.component('vue-select', VueSelect);

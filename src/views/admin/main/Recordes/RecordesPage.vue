@@ -95,7 +95,7 @@
 														<th scope='col'>title</th>
 														<th scope='col'>pages</th>
 														<th scope='col'>advisors</th>
-														<th scoped="col"> operations</th>
+														<th scoped="col" colspan="2"> operations</th>
 													</tr>
 												</thead>
 												<tr v-for="(app, index) in Recordes" :key="app" class="text-center">
@@ -120,10 +120,10 @@
 													<td class="d-flex">
 														<a v-if="app.status == 1" @click="changeStatus(app)"
 															href="javascript: void(0);" role="button"><span
-																class="btn btn-danger mx-1">reject</span></a>
+																class="btn btn-danger">reject</span></a>
 														<a v-if="app.status == 0" @click="changeStatus(app)"
 															href="javascript: void(0);" role="button"><span
-																class="btn btn-success mx-1">approve</span> </a>
+																class="btn btn-success">approve</span> </a>
 													</td>
 												</tr>
 											</table>
@@ -131,16 +131,18 @@
 											<div class="row" v-if="tot_pages > 1">
 												<div class="col-md-12">
 													<ul class="paginations freelancer">
+														<li class="page-item">{{ page }}/{{ tot_pages }}</li>
 														<li :class="{ disabled: page == 1 }"><a class="page-link"
-																@click="get(parseInt(page) - 1)" href="javascript:void(0);"><i
-																	class="fas fa-angle-left"></i>
+																@click="get(parseInt(page) - 1)"
+																href="javascript:void(0);"><i class="fas fa-angle-left"></i>
 																Previous</a></li>
 														<li class="page-item" :class="{ active: p == page }">
 															<input class="form-control text-center" type="number" min="1"
 																v-model="page" :max="tot_pages" @input="get(page)" />
 														</li>
 														<li class="page-item" :class="{ disabled: page == total_pages }">
-															<a @click="get(parseInt(page) + 1)" href="javascript:void(0);">Next
+															<a @click="get(parseInt(page) + 1)"
+																href="javascript:void(0);">Next
 																<i class="fas fa-angle-right"></i></a>
 														</li>
 													</ul>
@@ -168,11 +170,21 @@
 						<h4 class="modal-title">Add {{ page_name }}</h4>
 						<button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
 					</div>
-
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form @submit.prevent="addRecordes()">
+
 							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									university
+								</label>
+								<select v-model="recordes.unvrecity_id" class="form-control">
+									<option v-for="university in universities" :key="university" :value="university.id">{{
+										university.name }}</option>
+								</select>
+							</div>
+							<div class="mb-3">
+
 								<label for="message-text" class="col-form-label">
 									name
 								</label>
@@ -180,6 +192,7 @@
 								<div class="invalid-feedback"> </div>
 
 							</div>
+
 							<div class="mb-3">
 								<label for="message-text" class="col-form-label">
 									last_name
@@ -208,14 +221,16 @@
 								<label for="message-text" class="col-form-label">
 									advisors
 								</label>
-								<input required v-model="recordes.advisors" dir="ltr" class="form-control" type="text">
-								<div class="invalid-feedback"> </div>
+								<select v-model="recordes.advisors" class="form-control">
+									<option v-for="country in advisors" :key="country" :value="country.id">
+										{{country.name }} {{ country.last_name }}
 
+									</option>
+								</select>
+								<div class="invalid-feedback"> </div>
 							</div>
 
-
-
-							<div class="mt-4">
+							<div class="mt-5">
 								<button type="submit" class="btn btn-primary btn-block">Submit</button>
 							</div>
 						</form>
@@ -239,7 +254,18 @@
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form @submit.prevent="updateRecordes(app)">
+
 							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									university
+								</label>
+								<select v-model="recordes.unvrecity_id" class="form-control">
+									<option v-for="university in universities" :key="university" :value="university.id">{{
+										university.name }}</option>
+								</select>
+							</div>
+							<div class="mb-3">
+
 								<label for="message-text" class="col-form-label">
 									name
 								</label>
@@ -247,6 +273,7 @@
 								<div class="invalid-feedback"> </div>
 
 							</div>
+
 							<div class="mb-3">
 								<label for="message-text" class="col-form-label">
 									last_name
@@ -275,11 +302,12 @@
 								<label for="message-text" class="col-form-label">
 									advisors
 								</label>
-								<input required v-model="recordes.advisors" dir="ltr" class="form-control" type="text">
-								<div class="invalid-feedback"> </div>
-
+								<select v-model="recordes.advisors" class="form-control">
+									<option v-for="country in advisors" :key="country" :value="country.id">
+										{{country.name }}{{ country.last_name }}
+									</option>
+								</select>
 							</div>
-
 
 							<div class="mt-4">
 								<button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -327,8 +355,10 @@ export default {
 		return {
 			page_name: "recordes",
 			Recordes: [],
+			advisors: [],
 			states: [],
 			status: 0,
+			universities: [],
 			recordes: {},
 			page: 1,
 			limit: 20,
@@ -356,7 +386,9 @@ export default {
 			})
 		},
 		addRecordes() {
-			// console.log("**********####", this.state);
+			let user_id = JSON.parse(localStorage.getItem("currentUser"))
+			this.recordes.poster_id = user_id.id
+
 			this.http.post("recordes", this.recordes).then(() => {
 				var data = document.getElementsByClassName("modal fade custom-modal show")
 				data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
@@ -373,6 +405,7 @@ export default {
 			var id = this.recordes.id
 			console.log("316", id)
 			this.http.put("recordes/", id, this.recordes).then(() => {
+				var data = document.getElementsByClassName("modal fade custom-modal show")
 				var data = document.getElementsByClassName("modal fade custom-modal show")
 				data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
 				document.getElementsByClassName("modal-backdrop fade show")[0].replaceWith("modal-backdrop fade show", "modal-backdrop fade hide")
@@ -415,6 +448,7 @@ export default {
 
 		get(page) {
 			console.log("441", page);
+			// let info = JSON.parse()
 			this.http
 				.post("recordes/paginate", {
 					limit: this.limit,
@@ -425,15 +459,32 @@ export default {
 					this.page = page;
 					this.tot_pages = Math.ceil(res.tot / this.limit);
 					this.Recordes = res.data;
+
+
+					this.http.get("recordes", {
+						limit: this.limit,
+						page: page,
+					})
+						.then((res) => {
+							this.advisors = res.data
+
+
+						})
 					console.log("---------------", this.Recordes)
 
-
+					this.http
+						.get("unvarsecites",
+						)
+						.then((res) => {
+							this.universities = res.data;
+						});
 
 				});
 		},
 	},
 	created() {
 		this.get(1);
+
 	},
 }
 </script>

@@ -122,6 +122,7 @@
 											<div class="row" v-if="tot_pages > 1">
 												<div class="col-md-12">
 													<ul class="paginations freelancer">
+														<li class="page-item">{{ page }}/{{ tot_pages }}</li>
 														<li :class="{ disabled: page == 1 }"><a class="page-link"
 																@click="get(parseInt(page) - 1)"
 																href="javascript:void(0);"><i class="fas fa-angle-left"></i>
@@ -313,6 +314,7 @@ export default {
 			AwardsSearchMode: false,
 			searchModel: "",
 			state: state,
+			data:[]
 		};
 	},
 	methods: {
@@ -376,6 +378,8 @@ export default {
 
 		get(page) {
 			console.log("441", page);
+			this.data=JSON.parse((localStorage.getItem("currentUser")))
+
 			this.http
 				.post("awards/paginate", {
 					limit: this.limit,

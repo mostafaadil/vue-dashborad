@@ -17,8 +17,8 @@
 										<li class="breadcrumb-item"><router-link to="/index"><img
 													src="../../../../assets/img/home-icon.svg" alt="Post Author">
 												Home</router-link></li>
-										<li class="breadcrumb-item" aria-current="page">Employee</li>
-										<li class="breadcrumb-item" aria-current="page">Favourites</li>
+										<li class="breadcrumb-item" aria-current="page">{{data?.name}}</li>
+										<li class="breadcrumb-item" aria-current="page">My awards</li>
 									</ol>
 								</nav>
 							</div>
@@ -97,12 +97,7 @@ export default {
 	// 	loadImg(imgPath) {
 	// 		return images('./' + imgPath).default
 	// 	},
-	// },
-	data() {
-		return {
-			favourite: favourite
-		}
-	},
+
 	data() {
 		return {
 			page_name: "poster_awareds",
@@ -116,14 +111,16 @@ export default {
 			PosterAwaredsSearchMode: false,
 			searchModel: "",
 			state: state,
+			favourite: favourite,
+			data:{}
 		};
 	},
 	methods: {
 		get(page) {
 			console.log(page);
-			const current_user = JSON.parse(localStorage.currentUser);
-			console.log("202", current_user);
-			this.poster_id = current_user.id;
+			this.data = JSON.parse(localStorage.getItem("currentUser"));
+			console.log("202", this.data);
+			this.poster_id = this.data?.id;
 			console.log("201", this.poster_id)
 			this.http
 				.post("poster-awareds/paginate", {

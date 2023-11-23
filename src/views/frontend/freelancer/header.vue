@@ -23,10 +23,36 @@
                     </a>
                 </div>
                 <ul class="main-nav">
+                    <ul class="main-nav">
                     <li class="has-submenu" :class="homeMenu ? 'active' : 'notactive'">
-                        <router-link to="/" target="_blank">Home </router-link>
-                          
+                        <router-link to="/">Home</router-link>
                     </li>
+                    <li>
+                        <router-link to="/about">About Us </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/posters">Posters</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/submit-data">Submit Data </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/contact-us">Contact Us </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/extrema">Extrema </router-link>
+                    </li>
+
+                    <li>
+                        <router-link to="/mission">Mission </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/faq">Faq</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/admin/login">Admin</router-link>
+                    </li>
+                </ul>
                    
                 </ul>
             </div>		 

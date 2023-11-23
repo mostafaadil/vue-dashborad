@@ -1,11 +1,13 @@
-import {createRouter, createWebHistory} from 'vue-router';
-import Index from '../views/frontend/Index'
-import Index5 from '../views/frontend/Index5'
-import Index4 from '../views/frontend/Index4'
-import Index3 from '../views/frontend/Index3'
-import Index2 from '../views/frontend/Index2'
+import { createRouter, createWebHistory } from 'vue-router';
+import Index from '../views/frontend/Index.vue'
+
 import error404 from '../views/frontend/page/404page'
+import Mission from '../views/frontend/page/about/mession.vue'
+import Posters from '../views/frontend/page/about/posters.vue'
+import Extrema from '../views/frontend/page/about/extrema.vue'
+import Submit from '../views/frontend/page/about/submit.vue'
 import About from '../views/frontend/page/about/about.vue'
+import Contact from  '../views/frontend/page/about/contact.vue'
 import Blankpage from '../views/frontend/page/blankpage'
 import Blogdetail from '../views/frontend/blog/detail/detail'
 import Bloggrid from '../views/frontend/blog/grid/grid'
@@ -247,9 +249,9 @@ const routes = [
     component: () => import("../views/admin/main/Tree/Tree.vue"),
   },
 
-  
+
   {
-    path: '/admin/recored-studants/:id',
+    path: '/website/recored-studants/:id',
     name: 'studants',
     meta: {
       authRequired: true,
@@ -267,7 +269,7 @@ const routes = [
 
 
   {
-    path: '/users',
+    path: '/admin/users',
     name: 'users',
     meta: {
       authRequired: true,
@@ -276,8 +278,8 @@ const routes = [
   },
 
   {
-    path: '/posters',
-    name: 'posters',
+    path: '/admin/posters',
+    name: 'admin-posters',
     meta: {
       authRequired: true,
     },
@@ -290,802 +292,853 @@ const routes = [
   //   component: cities
   // }, 
   {
-      path: '/',
-      name: 'index',
-      component: Index
-    },
-    {
-      path: '/',
-      name: '',
-      component: Index
-    },
-    {
-      path: '/404-page',
-      name: '404-page',
-      component: error404
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    },
-    {
-      path: '/blank-page',
-      name: 'blank-page',
-      component: Blankpage
-    },
-    {
-      path: '/blog-details',
-      name: 'blog-details',
-      component: Blogdetail
-    },
-    {
-      path: '/blog-grid',
-      name: 'blog-grid',
-      component: Bloggrid
-    },
-    {
-      path: '/blog-list',
-      name: 'blog-list',
-      component: Bloglist
-    },
-    {
-      path: '/cancelled-projects',
-      name: 'cancelled-projects',
-      component: Cancelledproject
-    },
-    {
-      path: '/completed-projects',
-      name: 'completed-projects',
-      component: Completedproject
-    },
-    {
-      path: '/change-password',
-      name: 'change-password',
-      component: Changepassword
-    },
-    {
-      path: '/chats',
-      name: 'chats',
-      component: Chat
-    },
-    {
-      path: '/company-details',
-      name: 'company-details',
-      component: Companydetail
-    },
-    {
-      path: '/company-gallery',
-      name: 'company-gallery',
-      component: Companygallery
-    },
-    {
-      path: '/company-profile',
-      name: 'company-profile',
-      component: Companyprofile
-    },
-    {
-      path: '/company-project',
-      name: 'company-project',
-      component: Companyproject
-    },
-    {
-      path: '/company-review',
-      name: 'company-review',
-      component: Companyreview
-    },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
-    },
-    {
-      path: '/delete-account',
-      name: 'delete-account',
-      component: Deleteaccount
-    },
-    {
-      path: '/deposit-funds',
-      name: 'deposit-funds',
-      component: Depositfund
-    },
-    {
-      path: '/developer',
-      name: 'developer',
-      component: Developer
-    },
-    {
-      path: '/developer-details',
-      name: 'developer-details',
-      component: Developerdetail
-    },
-    {
-      path: '/developer-list',
-      name: 'developer-list',
-      component: Developerlist
-    },
-    {
-      path: '/developer-profile',
-      name: 'developer-profile',
-      component: Developerprofile
-    },
-    {
-      path: '/edit-project',
-      name: 'edit-project',
-      component: Editproject
-    },
-    {
-      path: '/faq',
-      name: 'faq',
-      component: Faq
-    },
-    {
-      path: '/favourites',
-      name: 'my awards',
-      component: Employeefavourite
-    },
-    {
-      path: '/records',
-      name: 'my records',
-      component: ()=>import ("../views/frontend/employer/favourites/records.vue")
-    },
-    {
-      path: '/invited-favourites',
-      name: 'invited-favourites',
-      component: Employeeinvitedfavourites
-    },
-    {
-      path: '/favourites-list',
-      name: 'favourites-list',
-      component: Employeefavouritelist
-    },
-    {
-      path: '/files',
-      name: 'files',
-      component: Employeefile
-    },
-    {
-      path: '/forgot-password',
-      name: 'forgot-password',
-      component: Forgotpassword
-    },
-    {
-      path: '/freelancer-cancelled-projects',
-      name: 'freelancer-cancelled-projects',
-      component: Freelancercancelledproject
-    },
-    {
-      path: '/freelancer-change-password',
-      name: 'freelancer-change-password',
-      component: Freelancerchangepassword
-    },
-    {
-      path: '/freelancer-chats',
-      name: 'freelancer-chats',
-      component: Freelancerchat
-    },
-    {
-      path: '/freelancer-completed-projects',
-      name: 'freelancer-completed-projects',
-      component: Freelancercompleted
-    },
-    {
-      path: '/freelancer-dashboard',
-      name: 'freelancer-dashboard',
-      component: Freelancerdashboard
-    },
-    {
-      path: '/freelancer-delete-account',
-      name: 'freelancer-delete-account',
-      component: Freelancerdeleteaccount
-    },
-    {
-      path: '/freelancer-favourites',
-      name: 'freelancer-favourites',
-      component: Freelancerfavourites
-    },
-    {
-      path: '/freelancer-files',
-      name: 'freelancer-files',
-      component: Freelancerfile
-    },
-    {
-      path: '/freelancer-invitations',
-      name: 'freelancer-invitations',
-      component: Freelancerinvitations
-    },
-    {
-      path: '/freelancer-invoices',
-      name: 'freelancer-invoices',
-      component: Freelancerinvoices
-    },
-    {
-      path: '/freelancer-membership',
-      name: 'freelancer-membership',
-      component: Freelancermembership
-    },
-    {
-      path: '/freelancer-milestones',
-      name: 'freelancer-milestones',
-      component: Freelancermilestone
-    },
-    {
-      path: '/freelancer-ongoing-projects',
-      name: 'freelancer-ongoing-projects',
-      component: Freelancerongoing
-    },
-    {
-      path: '/freelancer-payment',
-      name: 'freelancer-payment',
-      component: Freelancerpayment
-    },
-    {
-      path: '/freelancer-portfolio',
-      name: 'freelancer-portfolio',
-      component: Freelancerportfolio
-    },
-    {
-      path: '/freelancer-profile',
-      name: 'freelancer-profile',
-      component: Freelancerprofile
-    },
-    {
-      path: '/freelancer-profile-settings',
-      name: 'freelancer-profile-settings',
-      component: Freelancerprofilesettings
-    },
-    {
-      path: '/freelancer-project-proposals',
-      name: 'freelancer-project-proposals',
-      component: Freelancerprojectproposal
-    },
-    {
-      path: '/freelancer-review',
-      name: 'freelancer-review',
-      component: Freelancerpojectview
-    },
-    {
-      path: '/freelancer-task',
-      name: 'freelancer-task',
-      component: Employeetask
-    },
-    {
-      path: '/freelancer-transaction-history',
-      name: 'freelancer-transaction-history',
-      component: Freelancertransactionhistory
-    },
-    {
-      path: '/freelancer-verify-identity',
-      name: 'freelancer-verify-identity',
-      component: Freelancerverifyidentity
-    },
-    {
-      path: '/freelancer-view-project-detail',
-      name: 'freelancer-view-project-detail',
-      component: Employerviewprojectdetail
-    },
-    {
-      path: '/freelancer-withdraw-money',
-      name: 'freelancer-withdraw-money',
-      component: Freelancerwithdrawmoney
-    },
-    {
-      path: '/withdraw-money',
-      name: 'withdraw-money',
-      component: Employerwithdrawmoney
-    },
-    {
-      path: '/view-proposals',
-      name: 'view-proposals',
-      component: Viewproposal
-    },
-    {
-      path: '/view-project-detail',
-      name: 'view-project-detail',
-      component: Employeeviewprojectdetail
-    },
-    {
-      path: '/view-invoice',
-      name: 'view-invoice',
-      component: Viewinvoice
-    },
-    {
-      path: '/verify-identity',
-      name: 'verify-identity',
-      component: Verifyidentity
-    },
-    {
-      path: '/user-account-details',
-      name: 'user-account-details',
-      component: Useraccountdetails
-    },
-    {
-      path: '/term-condition',
-      name: 'term-condition',
-      component: Termcondition
-    },
-    {
-      path: '/tasks',
-      name: 'tasks',
-      component: Employertask
-    },
-    {
-      path: '/review',
-      name: 'review',
-      component: Employerreview
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: Frontendregister
-    },
-    {
-      path: '/project-proposals',
-      name: 'project-proposals',
-      component: Employeprojectproposal
-    },
-    {
-      path: '/project-payment',
-      name: 'project-payment',
-      component: Employeeprojectpayment
-    },
-    {
-      path: '/project-details',
-      name: 'project-details',
-      component: Freelancerprojectdetail
-    },
-    {
-      path: '/project/:id',
-      name: 'project',
-      component: Freelancerproject
-    },
-    {
-      path: '/profile-settings',
-      name: 'profile-settings',
-      component: Employeeprofilesetting
-    },
-    {
-      path: '/privacy-policy',
-      name: 'privacy-policy',
-      component: Employeeprivacypolicy
-    },
-    {
-      path: '/invaited-list',
-      name: 'invaited-list',
-      component: Employeeinvaitedlist
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Employeelogin
-    },
-    {
-      path: '/manage-projects',
-      name: 'manage-projects',
-      component: Employermanageproject
-    },
-    {
-      path: '/membership-plans',
-      name: 'membership-plans',
-      component: Employermembershipplans
-    },
-    {
-      path: '/milestones',
-      name: 'milestones',
-      component: Employermilestones
-    },
-    {
-      path: '/onboard-screen',
-      name: 'onboard-screen',
-      component: Employeronboardscreen
-    },
-    {
-      path: '/onboard-screen-employer',
-      name: 'onboard-screen-employer',
-      component: Employeronboardscreenemployer
-    },
-    {
-      path: '/ongoing-projects',
-      name: 'ongoing-projects',
-      component: Employerongoingprojects
-    },
-    {
-      path: '/pending-projects',
-      name: 'pending-projects',
-      component: Employerpendingproject
-    },
-    {
-      path: '/post-job',
-      name: 'post-job',
-      component: Employerpostjob
-    },
-    {
-      path: '/post-project',
-      name: 'post-project',
-      component: Employerpostproject
-    },
+    path: '/',
+    name: 'index',
+    component: Index
+  },
+  {
+    path: '/',
+    name: '',
+    component: Index
+  },
+  {
+    path: '/404-page',
+    name: '404-page',
+    component: error404
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: About
+  },
+
+  {
+    path: '/mission',
+    name: 'mission',
+    component: Mission
+  }, {
+    path: '/extrema',
+    name: 'extrema',
+    component: Extrema
+  },
+  , {
+    path: '/submit-data',
+    name: 'submit data',
+    component: Submit
+  },
+  {
+    path: '/contact-us',
+    name: 'contact us',
+    component: Contact
+  },
+  {
+    path: '/posters',
+    name: 'posters',
+    component: Posters
+  },
+  {
+    path: '/blank-page',
+    name: 'blank-page',
+    component: Blankpage
+  },
+  {
+    path: '/blog-details',
+    name: 'blog-details',
+    component: Blogdetail
+  },
+  {
+    path: '/blog-grid',
+    name: 'blog-grid',
+    component: Bloggrid
+  },
+  {
+    path: '/blog-list',
+    name: 'blog-list',
+    component: Bloglist
+  },
+  {
+    path: '/cancelled-projects',
+    name: 'cancelled-projects',
+    component: Cancelledproject
+  },
+  {
+    path: '/completed-projects',
+    name: 'completed-projects',
+    component: Completedproject
+  },
+  {
+    path: '/change-password',
+    name: 'change-password',
+    component: Changepassword
+  },
+  {
+    path: '/chats',
+    name: 'chats',
+    component: Chat
+  },
+  {
+    path: '/company-details',
+    name: 'company-details',
+    component: Companydetail
+  },
+  {
+    path: '/company-gallery',
+    name: 'company-gallery',
+    component: Companygallery
+  },
+  {
+    path: '/company-profile',
+    name: 'company-profile',
+    component: Companyprofile
+  },
+  {
+    path: '/company-project',
+    name: 'company-project',
+    component: Companyproject
+  },
+  {
+    path: '/company-review',
+    name: 'company-review',
+    component: Companyreview
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: Dashboard
+  },
+  {
+    path: '/delete-account',
+    name: 'delete-account',
+    component: Deleteaccount
+  },
+  {
+    path: '/deposit-funds',
+    name: 'deposit-funds',
+    component: Depositfund
+  },
+  {
+    path: '/developer',
+    name: 'developer',
+    component: Developer
+  },
+  {
+    path: '/developer-details',
+    name: 'developer-details',
+    component: Developerdetail
+  },
+  {
+    path: '/developer-list',
+    name: 'developer-list',
+    component: Developerlist
+  },
+  {
+    path: '/developer-profile',
+    name: 'developer-profile',
+    component: Developerprofile
+  },
+  {
+    path: '/edit-project',
+    name: 'edit-project',
+    component: Editproject
+  },
+  {
+    path: '/faq',
+    name: 'faq',
+    component: Faq
+  },
+  {
+    path: '/favourites',
+    name: 'my awards',
+    component: Employeefavourite
+  },
+  {
+    path: '/records',
+    name: 'my records',
+    component: () => import("../views/frontend/employer/favourites/records.vue")
+  },
+  {
+    path: '/invited-favourites',
+    name: 'invited-favourites',
+    component: Employeeinvitedfavourites
+  },
+  {
+    path: '/favourites-list',
+    name: 'favourites-list',
+    component: Employeefavouritelist
+  },
+  {
+    path: '/files',
+    name: 'files',
+    component: Employeefile
+  },
+  {
+    path: '/forgot-password',
+    name: 'forgot-password',
+    component: Forgotpassword
+  },
+  {
+    path: '/freelancer-cancelled-projects',
+    name: 'freelancer-cancelled-projects',
+    component: Freelancercancelledproject
+  },
+  {
+    path: '/freelancer-change-password',
+    name: 'freelancer-change-password',
+    component: Freelancerchangepassword
+  },
+  {
+    path: '/freelancer-chats',
+    name: 'freelancer-chats',
+    component: Freelancerchat
+  },
+  {
+    path: '/freelancer-completed-projects',
+    name: 'freelancer-completed-projects',
+    component: Freelancercompleted
+  },
+  {
+    path: '/freelancer-dashboard',
+    name: 'freelancer-dashboard',
+    component: Freelancerdashboard
+  },
+  {
+    path: '/freelancer-delete-account',
+    name: 'freelancer-delete-account',
+    component: Freelancerdeleteaccount
+  },
+  {
+    path: '/freelancer-favourites',
+    name: 'freelancer-favourites',
+    component: Freelancerfavourites
+  },
+  {
+    path: '/freelancer-files',
+    name: 'freelancer-files',
+    component: Freelancerfile
+  },
+  {
+    path: '/freelancer-invitations',
+    name: 'freelancer-invitations',
+    component: Freelancerinvitations
+  },
+  {
+    path: '/freelancer-invoices',
+    name: 'freelancer-invoices',
+    component: Freelancerinvoices
+  },
+  {
+    path: '/freelancer-membership',
+    name: 'freelancer-membership',
+    component: Freelancermembership
+  },
+  {
+    path: '/freelancer-milestones',
+    name: 'freelancer-milestones',
+    component: Freelancermilestone
+  },
+  {
+    path: '/freelancer-ongoing-projects',
+    name: 'freelancer-ongoing-projects',
+    component: Freelancerongoing
+  },
+  {
+    path: '/freelancer-payment',
+    name: 'freelancer-payment',
+    component: Freelancerpayment
+  },
+  {
+    path: '/freelancer-portfolio',
+    name: 'freelancer-portfolio',
+    component: Freelancerportfolio
+  },
+  {
+    path: '/freelancer-profile',
+    name: 'freelancer-profile',
+    component: Freelancerprofile
+  },
+  {
+    path: '/freelancer-profile-settings',
+    name: 'freelancer-profile-settings',
+    component: Freelancerprofilesettings
+  },
+  {
+    path: '/freelancer-project-proposals',
+    name: 'freelancer-project-proposals',
+    component: Freelancerprojectproposal
+  },
+  {
+    path: '/freelancer-review',
+    name: 'freelancer-review',
+    component: Freelancerpojectview
+  },
+  {
+    path: '/freelancer-task',
+    name: 'freelancer-task',
+    component: Employeetask
+  },
+  {
+    path: '/freelancer-transaction-history',
+    name: 'freelancer-transaction-history',
+    component: Freelancertransactionhistory
+  },
+  {
+    path: '/freelancer-verify-identity',
+    name: 'freelancer-verify-identity',
+    component: Freelancerverifyidentity
+  },
+  {
+    path: '/freelancer-view-project-detail',
+    name: 'freelancer-view-project-detail',
+    component: Employerviewprojectdetail
+  },
+  {
+    path: '/freelancer-withdraw-money',
+    name: 'freelancer-withdraw-money',
+    component: Freelancerwithdrawmoney
+  },
+  {
+    path: '/withdraw-money',
+    name: 'withdraw-money',
+    component: Employerwithdrawmoney
+  },
+  {
+    path: '/view-proposals',
+    name: 'view-proposals',
+    component: Viewproposal
+  },
+  {
+    path: '/view-project-detail',
+    name: 'view-project-detail',
+    component: Employeeviewprojectdetail
+  },
+  {
+    path: '/view-invoice',
+    name: 'view-invoice',
+    component: Viewinvoice
+  },
+  {
+    path: '/verify-identity',
+    name: 'verify-identity',
+    component: Verifyidentity
+  },
+  {
+    path: '/user-account-details',
+    name: 'user-account-details',
+    component: Useraccountdetails
+  },
+  {
+    path: '/term-condition',
+    name: 'term-condition',
+    component: Termcondition
+  },
+  {
+    path: '/tasks',
+    name: 'tasks',
+    component: Employertask
+  },
+  {
+    path: '/review',
+    name: 'review',
+    component: Employerreview
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Frontendregister
+  },
+  {
+    path: '/project-proposals',
+    name: 'project-proposals',
+    component: Employeprojectproposal
+  },
+  {
+    path: '/project-payment',
+    name: 'project-payment',
+    component: Employeeprojectpayment
+  },
+  {
+    path: '/project-details',
+    name: 'project-details',
+    component: Freelancerprojectdetail
+  },
+  {
+    path: '/project/:id',
+    name: 'project',
+    component: Freelancerproject
+  },
+  {
+    path: '/profile-settings',
+    name: 'profile-settings',
+    component: Employeeprofilesetting
+  },
+  {
+    path: '/privacy-policy',
+    name: 'privacy-policy',
+    component: Employeeprivacypolicy
+  },
+  {
+    path: '/invaited-list',
+    name: 'invaited-list',
+    component: Employeeinvaitedlist
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Employeelogin
+  },
+  {
+    path: '/manage-projects',
+    name: 'manage-projects',
+    component: Employermanageproject
+  },
+  {
+    path: '/membership-plans',
+    name: 'membership-plans',
+    component: Employermembershipplans
+  },
+  {
+    path: '/milestones',
+    name: 'milestones',
+    component: Employermilestones
+  },
+  {
+    path: '/onboard-screen',
+    name: 'onboard-screen',
+    component: Employeronboardscreen
+  },
+  {
+    path: '/onboard-screen-employer',
+    name: 'onboard-screen-employer',
+    component: Employeronboardscreenemployer
+  },
+  {
+    path: '/ongoing-projects',
+    name: 'ongoing-projects',
+    component: Employerongoingprojects
+  },
+  {
+    path: '/pending-projects',
+    name: 'pending-projects',
+    component: Employerpendingproject
+  },
+  {
+    path: '/post-job',
+    name: 'post-job',
+    component: Employerpostjob
+  },
+  {
+    path: '/post-project',
+    name: 'post-project',
+    component: Employerpostproject
+  },
 
 
-/***********Admin route *************/
-    {
-      path: '/admin/activities',
-      name: '/admin/activities',
-      component: Adminactivities
-    },
-    {
-      path: '/admin/bid-fees',
-      name: '/admin/bid-fees',
-      component: Adminbidfees
-    },
-    {
-      path: '/admin/categories',
-      name: '/admin/categories',
-      component: Admincategories
-    },
-    {
-      path: '/admin/change-password',
-      name: '/admin/change-password',
-      component: Adminchangepassword
-    },
-    {
-      path: '/admin/components',
-      name: '/admin/components',
-      component: Admincomponents
-    },
-    {
-      path: '/admin/contest-entry-fees',
-      name: '/admin/contest-entry-fees',
-      component: Admincontestentryfee
-    },
-    {
-      path: '/admin/contests-fees',
-      name: '/admin/contests-fees',
-      component: Admincontestsfee
-    },
-    {
-      path: '/admin/data-tables',
-      name: '/admin/data-tables',
-      component: Admindatatable
-    },
-    {
-      path: '/admin/delete-account',
-      name: '/admin/delete-account',
-      component: Admindeleteaccount
-    },
-    {
-      path: '/admin/deposit',
-      name: '/admin/deposit',
-      component: Admindeposit
-    },
-    {
-      path: '/admin/deposit-cancelled',
-      name: '/admin/deposit-cancelled',
-      component: Admindepositcancelled
-    },
-    {
-      path: '/admin/deposit-completed',
-      name: '/admin/deposit-completed',
-      component: Admindepositcompleted
-    },
-    {
-      path: '/admin/deposit-hold',
-      name: '/admin/deposit-hold',
-      component: Admindeposithold
-    },
-    {
-      path: '/admin/deposit-pending',
-      name: '/admin/deposit-pending',
-      component: Admindepositpending
-    },
-    {
-      path: '/admin/earning-employer',
-      name: '/admin/earning-employer',
-      component: Adminearningemployer
-    },
-    {
-      path: '/admin/earning-freelancer',
-      name: '/admin/earning-freelancer',
-      component: Adminearningfreelancer
-    },
-    {
-      path: '/admin/email-settings',
-      name: '/admin/email-settings',
-      component: Adminemailsetting
-    },
-    {
-      path: '/admin/employe-list',
-      name: '/admin/employe-list',
-      component: Adminemployeelist
-    },
-    {
-      path: '/admin/forgot-password',
-      name: '/admin/forgot-password',
-      component: Adminforgotpassword
-    },
-    {
-      path: '/admin/form-basic-inputs',
-      name: '/admin/form-basic-inputs',
-      component: Adminbasicinput
-    },
-    {
-      path: '/admin/form-horizontal',
-      name: '/admin/form-horizontal',
-      component: Adminformhorizontal
-    },
-    {
-      path: '/admin/form-input-groups',
-      name: '/admin/form-input-groups',
-      component: Adminforminputgroup
-    },
-    {
-      path: '/admin/form-mask',
-      name: '/admin/form-mask',
-      component: Adminformmask
-    },
-    {
-      path: '/admin/form-validation',
-      name: '/admin/form-validation',
-      component: Adminformvalidation
-    },
-    {
-      path: '/admin/form-vertical',
-      name: '/admin/form-vertical',
-      component: Adminformvertical
-    },
-    {
-      path: '/admin/freelance-list',
-      name: '/admin/freelance-list',
-      component: Adminfreelancelist
-    },
-    {
-      path: '/admin/index',
-      name: '/admin/index',
-      component: Adminindex
-    },
-    {
-      path: '/admin/localization-details',
-      name: '/admin/localization-details',
-      component: Adminlocalizationdetail
-    },
-    {
-      path: '/admin/login',
-      name: '/admin/login',
-      component: Adminlogin
-    },
-    {
-      path: '/admin/others-settings',
-      name: '/admin/others-settings',
-      component: Adminothersetting
-    },
-    {
-      path: '/admin/payment-settings',
-      name: '/admin/payment-settings',
-      component: Adminpaymentsettings
-    },
-    {
-      path: '/admin/profile',
-      name: '/admin/profile',
-      component: Adminprofile
-    },
-    {
-      path: '/admin/profile-transactions',
-      name: '/admin/profile-transactions',
-      component: Adminprofiletransaction
-    },
-    {
-      path: '/admin/project-bidding',
-      name: '/admin/project-bidding',
-      component: Adminprojectbidding
-    },
-    {
-      path: '/admin/project-earnings',
-      name: '/admin/project-earnings',
-      component: Adminprojectearning
-    },
-    {
-      path: '/admin/project-invoice',
-      name: '/admin/project-invoice',
-      component: Adminprojectinvoice
-    },
-    {
-      path: '/admin/projects',
-      name: '/admin/projects',
-      component: Adminprojects
-    },
-    {
-      path: '/admin/projects-fees',
-      name: '/admin/projects-fees',
-      component: Adminprojectfees
-    },
-    {
-      path: '/admin/providers',
-      name: '/admin/providers',
-      component: Adminproviders
-    },
-    {
-      path: '/admin/register',
-      name: '/admin/register',
-      component: Adminregister
-    },
-    {
-      path: '/admin/reports',
-      name: '/admin/reports',
-      component: Adminreport
-    },
-    {
-      path: '/admin/roles',
-      name: '/admin/roles',
-      component: Adminrole
-    },
-    {
-      path: '/admin/roles-permission',
-      name: '/admin/roles-permission',
-      component: Adminrolepermission
-    },
-    {
-      path: '/admin/seo-settings',
-      name: '/admin/seo-settings',
-      component: Adminseosettings
-    },
-    {
-      path: '/admin/settings',
-      name: '/admin/settings',
-      component: Adminsettings
-    },
-    {
-      path: '/admin/skills',
-      name: '/admin/skills',
-      component: Adminskills
-    },
-    {
-      path: '/admin/social-links',
-      name: '/admin/social-links',
-      component: Adminsociallinks
-    },
-    {
-      path: '/admin/social-settings',
-      name: '/admin/social-settings',
-      component: Adminsocialsettings
-    },
-    {
-      path: '/admin/sub-category',
-      name: '/admin/sub-category',
-      component: Adminsubcategory
-    },
-    {
-      path: '/admin/subscripe-freelancer',
-      name: '/admin/subscripe-freelancer',
-      component: Adminsubscripefreelancer
-    },
-    {
-      path: '/admin/subscription',
-      name: '/admin/subscription',
-      component: Adminsubscription
-    },
-    {
-      path: '/admin/tables-basic',
-      name: '/admin/tables-basic',
-      component: Admintablebasic
-    },
-    {
-      path: '/admin/tax-types',
-      name: '/admin/tax-types',
-      component: Admintaxtype
-    },
-    {
-      path: '/admin/transaction',
-      name: '/admin/transaction',
-      component: Admintransaction
-    },
-    {
-      path: '/admin/transaction-completed',
-      name: '/admin/transaction-completed',
-      component: Admincompleted
-    },
-    {
-      path: '/admin/transaction-deposit',
-      name: '/admin/transaction-deposit',
-      component: Admintransactiondeposit
-    },
-    {
-      path: '/admin/transaction-onhold',
-      name: '/admin/transaction-onhold',
-      component: Admintransactiononhold
-    },
-    {
-      path: '/admin/transaction-pending',
-      name: '/admin/transaction-pending',
-      component: Admintransactionpending
-    },
-    {
-      path: '/admin/transaction-withdraw',
-      name: '/admin/transaction-withdraw',
-      component: Admintransactionwithdraw
-    },
-    {
-      path: '/admin/user-active',
-      name: '/admin/user-active',
-      component: Adminfreelanceruseractive
-    },
-    {
-      path: '/admin/user-administrator',
-      name: '/admin/user-administrator',
-      component: Adminuseradministrator
-    },
-    {
-      path: '/admin/user-inactive',
-      name: '/admin/user-inactive',
-      component: Admininactive
-    },
-    {
-      path: '/admin/user-profile',
-      name: '/admin/user-profile',
-      component: Adminuserprofile
-    },
-    {
-      path: '/admin/users',
-      name: '/admin/users',
-      component: Adminusers
-    },
-    {
-      path: '/admin/user-suspended',
-      name: '/admin/user-suspended',
-      component: Adminsuspended
-    },
-    {
-      path: '/admin/verify-identity',
-      name: '/admin/verify-identity',
-      component: Adminverifyidentity
-    },
-    {
-      path: '/admin/view-estimate',
-      name: '/admin/view-estimate',
-      component: Adminviewestimate
-    },
-    {
-      path: '/admin/view-invoice',
-      name: '/admin/view-invoice',
-      component: Adminviewinvoice
-    },
-    {
-      path: '/admin/view-price-employe',
-      name: '/admin/view-price-employe',
-      component: Adminviewpriceemployee
-    },
-    {
-      path: '/admin/view-price-freelance',
-      name: '/admin/view-price-freelance',
-      component: Adminviewpricefreelance
-    },
-    {
-      path: '/admin/withdrawn',
-      name: '/admin/withdrawn',
-      component: Adminwithdrawn
-    },
-    {
-      path: '/admin/withdrawn-cancelled',
-      name: '/admin/withdrawn-cancelled',
-      component: Adminmaincancelled
-    },
-    {
-      path: '/admin/withdrawn-completed',
-      name: '/admin/withdrawn-completed',
-      component: Adminmaincompleted
-    },
-    {
-      path: '/admin/withdrawn-pending',
-      name: '/admin/withdrawn-pending',
-      component: Adminmainpending
-    },
+  /***********Admin route *************/
+  {
+    path: '/admin/activities',
+    name: '/admin/activities',
+    component: Adminactivities
+  },
+  {
+    path: '/admin/bid-fees',
+    name: '/admin/bid-fees',
+    component: Adminbidfees
+  },
+  {
+    path: '/admin/categories',
+    name: '/admin/categories',
+    component: Admincategories
+  },
+  {
+    path: '/admin/change-password',
+    name: '/admin/change-password',
+    component: Adminchangepassword
+  },
+  {
+    path: '/admin/components',
+    name: '/admin/components',
+    component: Admincomponents
+  },
+  {
+    path: '/admin/contest-entry-fees',
+    name: '/admin/contest-entry-fees',
+    component: Admincontestentryfee
+  },
+  {
+    path: '/admin/contests-fees',
+    name: '/admin/contests-fees',
+    component: Admincontestsfee
+  },
+  {
+    path: '/admin/data-tables',
+    name: '/admin/data-tables',
+    component: Admindatatable
+  },
+  {
+    path: '/admin/delete-account',
+    name: '/admin/delete-account',
+    component: Admindeleteaccount
+  },
+  {
+    path: '/admin/deposit',
+    name: '/admin/deposit',
+    component: Admindeposit
+  },
+  {
+    path: '/admin/deposit-cancelled',
+    name: '/admin/deposit-cancelled',
+    component: Admindepositcancelled
+  },
+  {
+    path: '/admin/deposit-completed',
+    name: '/admin/deposit-completed',
+    component: Admindepositcompleted
+  },
+  {
+    path: '/admin/deposit-hold',
+    name: '/admin/deposit-hold',
+    component: Admindeposithold
+  },
+  {
+    path: '/admin/deposit-pending',
+    name: '/admin/deposit-pending',
+    component: Admindepositpending
+  },
+  {
+    path: '/admin/earning-employer',
+    name: '/admin/earning-employer',
+    component: Adminearningemployer
+  },
+  {
+    path: '/admin/earning-freelancer',
+    name: '/admin/earning-freelancer',
+    component: Adminearningfreelancer
+  },
+  {
+    path: '/admin/email-settings',
+    name: '/admin/email-settings',
+    component: Adminemailsetting
+  },
+  {
+    path: '/admin/employe-list',
+    name: '/admin/employe-list',
+    component: Adminemployeelist
+  },
+  {
+    path: '/admin/forgot-password',
+    name: '/admin/forgot-password',
+    component: Adminforgotpassword
+  },
+  {
+    path: '/admin/form-basic-inputs',
+    name: '/admin/form-basic-inputs',
+    component: Adminbasicinput
+  },
+  {
+    path: '/admin/form-horizontal',
+    name: '/admin/form-horizontal',
+    component: Adminformhorizontal
+  },
+  {
+    path: '/admin/form-input-groups',
+    name: '/admin/form-input-groups',
+    component: Adminforminputgroup
+  },
+  {
+    path: '/admin/form-mask',
+    name: '/admin/form-mask',
+    component: Adminformmask
+  },
+  {
+    path: '/admin/form-validation',
+    name: '/admin/form-validation',
+    component: Adminformvalidation
+  },
+  {
+    path: '/admin/form-vertical',
+    name: '/admin/form-vertical',
+    component: Adminformvertical
+  },
+  {
+    path: '/admin/freelance-list',
+    name: '/admin/freelance-list',
+    component: Adminfreelancelist
+  },
+  {
+    path: '/admin/index',
+    name: '/admin/index',
+    component: Adminindex
+  },
+  {
+    path: '/admin/localization-details',
+    name: '/admin/localization-details',
+    component: Adminlocalizationdetail
+  },
+  {
+    path: '/admin/login',
+    name: '/admin/login',
+    component: Adminlogin
+  },
+  {
+    path: '/admin/others-settings',
+    name: '/admin/others-settings',
+    component: Adminothersetting
+  },
+  {
+    path: '/admin/payment-settings',
+    name: '/admin/payment-settings',
+    component: Adminpaymentsettings
+  },
+  {
+    path: '/admin/profile',
+    name: '/admin/profile',
+    component: Adminprofile
+  },
+  {
+    path: '/admin/profile-transactions',
+    name: '/admin/profile-transactions',
+    component: Adminprofiletransaction
+  },
+  {
+    path: '/admin/project-bidding',
+    name: '/admin/project-bidding',
+    component: Adminprojectbidding
+  },
+  {
+    path: '/admin/project-earnings',
+    name: '/admin/project-earnings',
+    component: Adminprojectearning
+  },
+  {
+    path: '/admin/project-invoice',
+    name: '/admin/project-invoice',
+    component: Adminprojectinvoice
+  },
+  {
+    path: '/admin/projects',
+    name: '/admin/projects',
+    component: Adminprojects
+  },
+  {
+    path: '/admin/projects-fees',
+    name: '/admin/projects-fees',
+    component: Adminprojectfees
+  },
+  {
+    path: '/admin/providers',
+    name: '/admin/providers',
+    component: Adminproviders
+  },
+  {
+    path: '/admin/register',
+    name: '/admin/register',
+    component: Adminregister
+  },
+  {
+    path: '/admin/reports',
+    name: '/admin/reports',
+    component: Adminreport
+  },
+  {
+    path: '/admin/roles',
+    name: '/admin/roles',
+    component: Adminrole
+  },
+  {
+    path: '/admin/roles-permission',
+    name: '/admin/roles-permission',
+    component: Adminrolepermission
+  },
+  {
+    path: '/admin/seo-settings',
+    name: '/admin/seo-settings',
+    component: Adminseosettings
+  },
+  {
+    path: '/admin/settings',
+    name: '/admin/settings',
+    component: Adminsettings
+  },
+  {
+    path: '/admin/skills',
+    name: '/admin/skills',
+    component: Adminskills
+  },
+  {
+    path: '/admin/social-links',
+    name: '/admin/social-links',
+    component: Adminsociallinks
+  },
+  {
+    path: '/admin/social-settings',
+    name: '/admin/social-settings',
+    component: Adminsocialsettings
+  },
+  {
+    path: '/admin/sub-category',
+    name: '/admin/sub-category',
+    component: Adminsubcategory
+  },
+  {
+    path: '/admin/subscripe-freelancer',
+    name: '/admin/subscripe-freelancer',
+    component: Adminsubscripefreelancer
+  },
+  {
+    path: '/admin/subscription',
+    name: '/admin/subscription',
+    component: Adminsubscription
+  },
+  {
+    path: '/admin/tables-basic',
+    name: '/admin/tables-basic',
+    component: Admintablebasic
+  },
+  {
+    path: '/admin/tax-types',
+    name: '/admin/tax-types',
+    component: Admintaxtype
+  },
+  {
+    path: '/admin/transaction',
+    name: '/admin/transaction',
+    component: Admintransaction
+  },
+  {
+    path: '/admin/transaction-completed',
+    name: '/admin/transaction-completed',
+    component: Admincompleted
+  },
+  {
+    path: '/admin/transaction-deposit',
+    name: '/admin/transaction-deposit',
+    component: Admintransactiondeposit
+  },
+  {
+    path: '/admin/transaction-onhold',
+    name: '/admin/transaction-onhold',
+    component: Admintransactiononhold
+  },
+  {
+    path: '/admin/transaction-pending',
+    name: '/admin/transaction-pending',
+    component: Admintransactionpending
+  },
+  {
+    path: '/admin/transaction-withdraw',
+    name: '/admin/transaction-withdraw',
+    component: Admintransactionwithdraw
+  },
+  {
+    path: '/admin/user-active',
+    name: '/admin/user-active',
+    component: Adminfreelanceruseractive
+  },
+  {
+    path: '/admin/user-administrator',
+    name: '/admin/user-administrator',
+    component: Adminuseradministrator
+  },
+  {
+    path: '/admin/user-inactive',
+    name: '/admin/user-inactive',
+    component: Admininactive
+  },
+  {
+    path: '/admin/user-profile',
+    name: '/admin/user-profile',
+    component: Adminuserprofile
+  },
+  {
+    path: '/admin/users',
+    name: '/admin/users',
+    component: Adminusers
+  },
+  {
+    path: '/admin/user-suspended',
+    name: '/admin/user-suspended',
+    component: Adminsuspended
+  },
+  {
+    path: '/admin/verify-identity',
+    name: '/admin/verify-identity',
+    component: Adminverifyidentity
+  },
+  {
+    path: '/admin/view-estimate',
+    name: '/admin/view-estimate',
+    component: Adminviewestimate
+  },
+  {
+    path: '/admin/view-invoice',
+    name: '/admin/view-invoice',
+    component: Adminviewinvoice
+  },
+  {
+    path: '/admin/view-price-employe',
+    name: '/admin/view-price-employe',
+    component: Adminviewpriceemployee
+  },
+  {
+    path: '/admin/view-price-freelance',
+    name: '/admin/view-price-freelance',
+    component: Adminviewpricefreelance
+  },
+  {
+    path: '/admin/withdrawn',
+    name: '/admin/withdrawn',
+    component: Adminwithdrawn
+  },
+  {
+    path: '/admin/withdrawn-cancelled',
+    name: '/admin/withdrawn-cancelled',
+    component: Adminmaincancelled
+  },
+  {
+    path: '/admin/withdrawn-completed',
+    name: '/admin/withdrawn-completed',
+    component: Adminmaincompleted
+  },
+  {
+    path: '/admin/withdrawn-pending',
+    name: '/admin/withdrawn-pending',
+    component: Adminmainpending
+  },
 
 
 ];
 export const router = createRouter({
-    history: createWebHistory('website'),
-    linkActiveClass: 'active',
-    routes
+  history: createWebHistory('website'),
+  linkActiveClass: 'active',
+  routes
 });
 
-// router.beforeEach((to, from) => {
-//   console.log({from: from?.fullPath, to: to?.fullPath,})
-// })
+router.beforeEach((routeTo, _, next) => {
+  if (routeTo.path == "/admin/login" && JSON.parse(localStorage.getItem("currentUser")) != undefined) {
+    var storge = JSON.parse(localStorage.getItem("currentUser"))
+
+    if (storge.type == "admin") {
+      console.log(storge.type)
+      console.log(storge.type)
+      router.push("/admin/index");
+
+    }
+    else {
+      router.push("/dashboard");
+    }
+    const publicPages = ["/admin/login", "/regsiter"];
+    const authpage = !publicPages.includes(routeTo.path);
+    const loggeduser = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(loggeduser);
+    console.log("authpage", authpage);
+    if (authpage && !loggeduser) {
+      router.push("/login");
+    } else {
+      next();
+    }
+  }
+  else {
+    next()
+  }
+
+});

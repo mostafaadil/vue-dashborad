@@ -28,3 +28,8 @@ export default {
   }
 };
 </script>
+<style>
+th, td {
+  text-align: center;
+}
+</style>

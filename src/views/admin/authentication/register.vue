@@ -1,18 +1,18 @@
 <template>
-	<div>
-		<!-- Main Wrapper -->
-		<div class="main-wrapper login-body">
+	<!-- Main Wrapper -->
+	<!-- Main Wrapper -->
+	<div class="main-wrapper login-body">
 
-			<div class="login-wrapper">
-				<div class="container">
-					<img class="img-fluid logo-dark mb-2" src="../../../assets/admin-img/logo-01.png" alt="Logo">
-
+		<div class="login-wrapper">
+			<div class="container">
+				<img class="img-fluid logo-dark mb-2" src="../../../assets/admin-img/logo-01.png" alt="Logo">
+				<div class="loginbox">
 					<div class="loginbox">
 						<div class="login-right">
 							<div class="login-right-wrap">
 								<h1>Join Now </h1>
 								<p class="account-subtitle">Make the most of your professional life</p>
-								
+
 								<!-- Form -->
 								<div class="tab-content pt-0">
 									<div role="tabpanel" id="developer" class="tab-pane fade active show">
@@ -22,23 +22,24 @@
 												<label class="focus-label">User Name</label>
 											</div>
 											<div class="form-group form-focus">
-												<input v-model="user.email" type="text" class="form-control floating mt-2"
-													 />
-												
+												<input v-model="user.email" type="text"
+													class="form-control floating mt-2" />
+
 												<label class="focus-label">Email</label>
 											</div>
 											<div class="form-group form-focus">
 												<input v-model="user.pass" type="password"
-													class="form-control floating pass-input mt-2"
-													 />
-												
+													class="form-control floating pass-input mt-2" />
+
 												<label class="focus-label">Password</label>
 											</div>
-											
+
 											<div class="dont-have">
 												<p>You agree to the Kofejob <a href="javascript:void(0);">User
-														Agreement,</a> <a href="javascript:void(0);">Privacy Policy,</a> and
-													<a href="javascript:void(0);">Cookie Policy</a>.</p>
+														Agreement,</a> <a href="javascript:void(0);">Privacy Policy,</a>
+													and
+													<a href="javascript:void(0);">Cookie Policy</a>.
+												</p>
 											</div>
 											<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Agree
 												to join</button>
@@ -67,15 +68,16 @@
 
 										<div class="row form-row login-foot">
 											<div class="col-lg-6 login-forgot">
-												<router-link class="forgot-link" to="/admin/forgot-password">Forgot Password
+												<router-link class="forgot-link" to="/admin/forgot-password">Forgot
+													Password
 													?</router-link>
 											</div>
 											<div class="col-lg-6 dont-have">New to Kofejob? <router-link
 													to="/admin/register">Click here</router-link></div>
 										</div>
-									
+
 									</div>
-								
+
 								</div>
 							</div>
 						</div>
@@ -89,6 +91,17 @@
 </template>
 <script>
 export default {
+	mounted() {
+		if (localStorage.getItem('regreloaded')) {
+			// The page was just reloaded. Clear the value from local storage
+			// so that it will reload the next time this page is visited.
+			localStorage.removeItem('regreloaded');
+		} else {
+			// Set a flag so that we know not to reload the page twice.
+			localStorage.setItem('regreloaded', '1');
+			location.reload();
+		}
+	},
 	methods: {
 		tryToLogIn() {
 			this.submitted = true;
@@ -100,14 +113,15 @@ export default {
 			// console.log("valid");
 			// } else {
 			console.log(this.user);
-			this.user.type="poster"
-		this.http.post("users", this.user).then((res) => {
-				if(res.status==true){
+			this.user.type = "poster"
+			this.http.post("users", this.user).then((res) => {
+				if (res.status == true) {
+					localStorage.setItem("currentUser", JSON.stringify(res.data))
 					this.$router.push("/dashboard")
 
 				}
 			});
-						// }
+			// }
 		},
 	},
 	data() {

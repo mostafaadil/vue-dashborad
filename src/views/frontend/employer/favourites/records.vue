@@ -17,8 +17,8 @@
                                         <li class="breadcrumb-item"><router-link to="/index"><img
                                                     src="../../../../assets/img/home-icon.svg" alt="Post Author">
                                                 Home</router-link></li>
-                                        <li class="breadcrumb-item" aria-current="page">Employee</li>
-                                        <li class="breadcrumb-item" aria-current="page">Favourites</li>
+                                        <li class="breadcrumb-item" aria-current="page">{{ data.name }}</li>
+                                        <li class="breadcrumb-item" aria-current="page">records</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -72,6 +72,9 @@
                                                                 <th scope='col'>title</th>
                                                                 <th scope='col'>pages</th>
                                                                 <th scope='col'>advisors</th>
+                                                                <td scope='col'> status</td>
+                                                                <td scope='col'> created</td>
+                                                                <td scope='col'> updated</td>
                                                                 <th scoped="col"> operations</th>
                                                             </tr>
                                                         </thead>
@@ -82,18 +85,31 @@
                                                             <td>{{ app.title }}</td>
                                                             <td>{{ app.pages }}</td>
                                                             <td>{{ app.advisors }}</td>
+                                                            <td v-if="app.status == 0">
+                                                                <p><span class="btn btn-success">pending</span></p>
+                                                            </td>
+                                                            <td v-if="app.status == 1">
+                                                                <p><span class="btn btn-success">approved</span></p>
+                                                            </td>
+                                                            <td v-if="app.status == 2">
+                                                                <p><span class="btn profile-edit-btn">rejected</span></p>
+                                                            </td>
                                                             <td>{{ app.created.split('T')[0] }}</td>
                                                             <td>{{ app.updated.split('T')[0] }}</td>
-                                                            <td class="text-end">
-                                                                    <button
-                                                                    class="btn profile-edit-btn" @click="editRecordes(app)"
-                                                                    href="javascript: void(0);" role="button"
-                                                                    data-bs-toggle="modal"
+                                                            <td class="text-end d-flex align-items-center">
+                                                                <button class="btn profile-edit-btn"
+                                                                    @click="editRecordes(app)" href="javascript: void(0);"
+                                                                    role="button" data-bs-toggle="modal"
                                                                     data-bs-target="#edit-category"><i
                                                                         class="far fa-edit"></i></button>
-                                                                <a class="btn profile-edit-btn" href="javascript: void(0);"
-                                                                    role="button" @click="deleteRecordes(app)"><i
+                                                                <a class="btn profile-edit-btn mx-2"
+                                                                    href="javascript: void(0);" role="button"
+                                                                    @click="deleteRecordes(app)"><i
                                                                         class="far fa-trash-alt"></i></a>
+                                                                <router-link class="btn profile-edit-btn"
+                                                                    :to="`/website/recored-studants/${app.id}`">
+                                                                    <i
+                                                                        class="far fa-user"></i></router-link>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -141,157 +157,162 @@
 
         </div>
         <!-- /Main Wrapper -->
-        <div class="modal fade custom-modal" id="add-category">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Add {{ page_name }}</h4>
-                        <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
-                    </div>
+      	<!-- /Main Wrapper -->
+		<div class="modal fade custom-modal" id="add-category">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Add {{ page_name }}</h4>
+						<button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
+					</div>
+					<!-- Modal body -->
+					<div class="modal-body">
+						<form @submit.prevent="addRecordes()">
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form @submit.prevent="addRecordes()">
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									university
+								</label>
+								<select v-model="recordes.unvrecity_id" class="form-control">
+									<option v-for="university in universities" :key="university" :value="university.id">{{
+										university.name }}</option>
+								</select>
+							</div>
+							<div class="mb-3">
 
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    university
-                                </label>
-                                <select v-model="recordes.unvrecity_id" class="form-control">
-                                    <option v-for="university in universities" :key="university" :value="university.id">{{
-                                        university.name }}</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									name
+								</label>
+								<input required v-model="recordes.name" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                                <label for="message-text" class="col-form-label">
-                                    name
-                                </label>
-                                <input required v-model="recordes.name" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							</div>
 
-                            </div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									last_name
+								</label>
+								<input required v-model="recordes.last_name" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    last_name
-                                </label>
-                                <input required v-model="recordes.last_name" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									title
+								</label>
+								<input required v-model="recordes.title" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    title
-                                </label>
-                                <input required v-model="recordes.title" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									pages
+								</label>
+								<input required v-model="recordes.pages" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    pages
-                                </label>
-                                <input required v-model="recordes.pages" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									advisors
+								</label>
+								<select v-model="recordes.advisors" class="form-control">
+									<option v-for="country in advisors" :key="country" :value="country.id">
+										{{country.name }} {{ country.last_name }}
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    advisors
-                                </label>
-                                <input required v-model="recordes.advisors" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+									</option>
+								</select>
+								<div class="invalid-feedback"> </div>
+							</div>
 
-                            </div>
+							<div class="mt-5">
+								<button type="submit" class="btn btn-primary btn-block">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /The Modal -->
 
+		<!-- Edit Modal -->
+		<div class="modal fade custom-modal" id="edit-category">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
 
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Edit Category</h4>
+						<button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
+					</div>
 
-                            <div class="mt-4">
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /The Modal -->
+					<!-- Modal body -->
+					<div class="modal-body">
+						<form @submit.prevent="updateRecordes(app)">
 
-        <!-- Edit Modal -->
-        <div class="modal fade custom-modal" id="edit-category">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									university
+								</label>
+								<select v-model="recordes.unvrecity_id" class="form-control">
+									<option v-for="university in universities" :key="university" :value="university.id">{{
+										university.name }}</option>
+								</select>
+							</div>
+							<div class="mb-3">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Edit Category</h4>
-                        <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
-                    </div>
+								<label for="message-text" class="col-form-label">
+									name
+								</label>
+								<input required v-model="recordes.name" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form @submit.prevent="updateRecordes(app)">
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    university
-                                </label>
-                                <select v-model="recordes.unvrecity_id" class="form-control">
-                                    <option v-for="university in universities" :key="university" :value="university.id">{{
-                                        university.name }}</option>
-                                </select>
-                            </div>
+							</div>
 
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    name
-                                </label>
-                                <input required v-model="recordes.name" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									last_name
+								</label>
+								<input required v-model="recordes.last_name" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    last_name
-                                </label>
-                                <input required v-model="recordes.last_name" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									title
+								</label>
+								<input required v-model="recordes.title" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    title
-                                </label>
-                                <input required v-model="recordes.title" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									pages
+								</label>
+								<input required v-model="recordes.pages" dir="ltr" class="form-control" type="text">
+								<div class="invalid-feedback"> </div>
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    pages
-                                </label>
-                                <input required v-model="recordes.pages" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">
+									advisors
+								</label>
+								<select v-model="recordes.advisors" class="form-control">
+									<option v-for="country in advisors" :key="country" :value="country.id">
+										{{country.name }}{{ country.last_name }}
+									</option>
+								</select>
+							</div>
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">
-                                    advisors
-                                </label>
-                                <input required v-model="recordes.advisors" dir="ltr" class="form-control" type="text">
-                                <div class="invalid-feedback"> </div>
-
-                            </div>
-
-
-                            <div class="mt-4">
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+							<div class="mt-4">
+								<button type="submit" class="btn btn-primary btn-block">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
         <!-- /Edit Modal -->
 
 
@@ -328,7 +349,7 @@ var state = store._modules.root._children.auth.state;
 export default {
     data() {
         return {
-            page_name: "cities",
+            page_name: "My records",
             page: 1,
             limit: 20,
             tot_pages: 0,
@@ -338,6 +359,7 @@ export default {
             state: state,
             universities: [],
             recordes: {},
+            data: {},
         };
     },
     methods: {
@@ -357,11 +379,15 @@ export default {
             })
         },
         addRecordes() {
-            const current_user = JSON.parse(localStorage.currentUser);
-            console.log("202", current_user);
-            this.recordes.user_id = current_user.id
+            let data = JSON.parse((localStorage.getItem("currentUser")))
+            this.recordes.poster_id = data.id
             this.http.post("recordes", this.recordes).then(() => {
+                var data = document.getElementsByClassName("modal fade custom-modal show")
+                data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
+                document.getElementsByClassName("modal-backdrop fade show")[0].replaceWith("modal-backdrop fade show", "modal-backdrop fade hide")
+
                 this.get(this.page);
+
             });
         },
         editRecordes(app) {
@@ -371,7 +397,12 @@ export default {
         updateRecordes() {
             var id = this.recordes.id
             console.log("316", id)
+
             this.http.put("recordes/", id, this.recordes).then(() => {
+                var data = document.getElementsByClassName("modal fade custom-modal show")
+                data[0].replaceWith("modal fade custom-modal show", "modal fade custom-modal hide")
+                document.getElementsByClassName("modal-backdrop fade show")[0].replaceWith("modal-backdrop fade show", "modal-backdrop fade hide")
+
                 this.get(this.page);
             });
         },
@@ -403,18 +434,20 @@ export default {
         },
         deleteRecordes(app) {
             this.http.delete("Recordes", app.id).then(() => {
-                console.log("############################3");
                 this.get(this.page);
             });
         },
 
         get(page) {
             console.log("441", page);
+            this.data = JSON.parse((localStorage.getItem("currentUser")))
             this.http
-                .post("recordes/paginate", {
+                .post("recordes/paginate-poster", {
                     limit: this.limit,
                     page: page,
+                    id: this.data?.id
                 })
+
                 .then((res) => {
 
                     this.page = page;
@@ -423,6 +456,17 @@ export default {
                     console.log("---------------", this.Recordes)
 
                 });
+
+                
+					this.http.get("recordes", {
+						limit: this.limit,
+						page: page,
+					})
+						.then((res) => {
+							this.advisors = res.data
+
+
+						})
             this.http
                 .get("unvarsecites",
                 )

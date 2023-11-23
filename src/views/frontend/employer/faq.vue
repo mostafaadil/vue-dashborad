@@ -1,12 +1,12 @@
 <template>
-<div class="home-page">
-       <!-- Main Wrapper -->
-        <div class="main-wrapper">
+	<div class="home-page">
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
 			<!-- Header -->
-                <layout-header />
+			<layout-header />
 			<!-- /Header -->
-			
-            <!-- Breadcrumb -->
+
+			<!-- Breadcrumb -->
 			<div class="breadcrumb-bar">
 				<div class="container">
 					<div class="row align-items-center inner-banner">
@@ -23,191 +23,223 @@
 				</div>
 			</div>
 			<!-- /Breadcrumb -->
-			
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container">
-					
 					<div class="row">
-						<div class="col-md-12">
-							
-							<!-- FAQ Content -->
+						<div class="col-md-6">
 							<div class="faq p-0">
-							<div id="accordion">
-							
-							<!-- Basic FAQ Content -->
-							<div class="basics-faq">
-								<h4>Basics</h4>
-								
-								<!-- FAQ Content -->
-								<div class="card">
-									<a class="card-link" data-bs-toggle="collapse" href="#collapseOne">
-										<div class="card-header">																		  
-											Do you have any built-in caching? <i class="fa fa-angle-right"></i>
-										</div>
-									</a>								 
-									<div id="collapseOne" class="collapse" data-parent="#accordion">
-										<div class="card-body">
-											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								<div id="accordion">
+
+									<div class="basics-faq">
+										<h4>
+											I think some of your data is wrong. How do I have it corrected?
+										</h4>
+										<div class="card">
+											please click the link the individual's page to submit a data update. We will
+											process your submission as time allows, as we review all submissions by hand.
+											You may also wish to contact us regarding your question. Back to top.
 										</div>
 									</div>
-								</div>
-								<!-- /FAQ Content -->
-								
-								<!-- FAQ Content -->
-								<div class="card">
-									<a class="collapsed card-link" data-bs-toggle="collapse" href="#collapseTwo">	
-										<div class="card-header">																	
-											Can I add/upgrade my plan at any time?	<i class="fa fa-angle-right"></i>										
-										</div>
-									</a>
-								  <div id="collapseTwo" class="collapse" data-parent="#accordion">
-									<div class="card-body">
-									  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-									</div>
-								  </div>
-								</div>
-								<!-- /FAQ Content -->
-								
-								<!-- FAQ Content -->
-								<div class="card">
-									<a class="collapsed card-link" data-bs-toggle="collapse" href="#collapseThree">		
-										<div class="card-header">
-											How do I change my password? <i class="fa fa-angle-right"></i>
-										</div>
-									</a>
-									
-									<div id="collapseThree" class="collapse" data-parent="#accordion">
-										<div class="card-body">
-										  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+									<div class="basics-faq">
+										<h4>
+
+											I found two entries in your data for the same mathematician. How should I report
+											this?
+										</h4>
+										<div class="card">
+											Please use the contact form, selecting the "Report a duplicated entry"
+											option.Back to top.
+
+
 										</div>
 									</div>
-								</div>
-								<!-- /FAQ Content -->
-								
-								<!-- FAQ Content -->
-								<div class="card">									
-									<a class="collapsed card-link" data-bs-toggle="collapse" href="#collapsefour">	
-										<div class="card-header">
-											Do you have any built-in caching? <i class="fa fa-angle-right"></i>
-										</div>
-									</a>
-									<div id="collapsefour" class="collapse" data-parent="#accordion">
-										<div class="card-body">
-										  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+									<div class="basics-faq">
+										<h4>
+											I submitted a data update, but I see no changes to the individual's information
+										</h4>
+										<div class="card">
+											All of our data is currently reviewed and processed manually, so there will be a
+											delay in the update being reflected in our online database. Please do not submit
+											data updates multiple times. If one month has passed and your data update still
+											is not reflected, you may want to contact us. Back to top.
 										</div>
 									</div>
-								</div>
-								<!-- /FAQ Content -->
-							</div>
-							<!-- /Basic FAQ Content -->
-							
-							<!-- Account FAQ Content -->
-							<div class="basics-faq">							
-								<h4>Account</h4>
-							
-								<div class="card">
-									<a class="card-link" data-bs-toggle="collapse" href="#accOne">
-										<div class="card-header">																		  
-											Do you have any built-in caching? <i class="fa fa-angle-right"></i>
-										</div>
-									</a>								 
-									<div id="accOne" class="collapse" data-parent="#accordion">
-										<div class="card-body">
-											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-										</div>
-									</div>
-								</div>
-								
-								<div class="card">
-									<a class="collapsed card-link" data-bs-toggle="collapse" href="#accTwo">	
-										<div class="card-header">																	
-											Can I add/upgrade my plan at any time?	<i class="fa fa-angle-right"></i>										
-										</div>
-									</a>
-								  <div id="accTwo" class="collapse" data-parent="#accordion">
-									<div class="card-body">
-									  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-									</div>
-								  </div>
-								</div>
-								
-								<div class="card">
-									<a class="collapsed card-link" data-bs-toggle="collapse" href="#accThree">		
-										<div class="card-header">
-											How do I change my password? <i class="fa fa-angle-right"></i>
-										</div>
-									</a>									
-									<div id="accThree" class="collapse" data-parent="#accordion">
-										<div class="card-body">
-										  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+									<div class="basics-faq">
+										<h4>
+
+											I'm researching my family's genealogy, and I have found a Dr. Jane Q.
+											Mathematician in
+											my
+
+											ancestry. There is a Jane Q. Mathematician listed on your website. Can you
+											provide me
+											any
+											further information?
+										</h4>
+										<div class="card">
+											The geology Genealogy Project catalogs information on individuals with
+											doctoral degrees in geology . In our genealogy, one's parent(s) are his/her
+											doctoral advisor(s). All information that we have in our database is listed on
+											that person's page. If you believe the individual in our database may still be
+											alive, you might try searching the Combined Membership List of the major
+											American and Canadian Geology  organizations. Back to top.
 										</div>
 									</div>
-								</div>
-							</div>
-							<!-- /Account FAQ Content -->
-							
-							<!-- Privacy FAQ Content -->							
-							<div class="basics-faq mb-4">
-								<h4>Privacy</h4>
-							
-								<div class="card">
-									<a class="card-link" data-bs-toggle="collapse" href="#PrivacyOne">
-										<div class="card-header">																		  
-											Do you have any built-in caching? <i class="fa fa-angle-right"></i>
-										</div>
-									</a>								 
-									<div id="PrivacyOne" class="collapse" data-parent="#accordion">
-										<div class="card-body">
-											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+									<div class="basics-faq">
+										<h4>
+
+											I would like to contact Dr. John Q. Mathematician whose name I found on your
+											site. How
+											can I
+											email him?
+										</h4>
+										<div class="card">
+											The listing of an individual in our database does not imply any connection to
+											the Department of geology at North Dakota State University or the American
+											Geology  Society. Because of the tremendous number of mathematicians in our
+											database, we are unable to maintain current contact information for them. You
+											might try searching the Combined Membership List of the major American and
+											Canadian Geology  organizations. Back to top.
 										</div>
 									</div>
-								</div>
-								
-								<div class="card">
-									<a class="collapsed card-link" data-bs-toggle="collapse" href="#PrivacyTwo">	
-										<div class="card-header">																	
-											Can I add/upgrade my plan at any time?	<i class="fa fa-angle-right"></i>										
-										</div>
-									</a>
-								  <div id="PrivacyTwo" class="collapse" data-parent="#accordion">
-									<div class="card-body">
-									  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-									</div>
-								  </div>
-								</div>
-								
-								<div class="card">
-									<a class="collapsed card-link" data-bs-toggle="collapse" href="#PrivacyThree">		
-										<div class="card-header">
-											How do I change my password? <i class="fa fa-angle-right"></i>
-										</div>
-									</a>									
-									<div id="PrivacyThree" class="collapse" data-parent="#accordion">
-										<div class="card-body">
-										  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+									<div class="basics-faq">
+										<h4>
+
+											Will you provide a link from my genealogy page to my personal or work home page?
+										</h4>
+										<div class="card">
+											No. We are kept busy adding new records to our database and correcting errors in
+											existing records; our limited time and budget do not allow us to keep up-to-date
+											website links for mathematicians in our database. Back to top.
 										</div>
 									</div>
+									<div class="basics-faq">
+										<h4>
+
+											Where do you get your data?
+										</h4>
+										<div class="card">
+											We depend on information from our visitors for most of our data. In cases of
+											partial information, we search Dissertation Abstracts International in an effort
+											to find complete information. We have also entered a considerable amount of data
+											found on lists of graduates maintained by individual departments. If you have
+											data to provide, our submission form is the best way to submit it. For large
+											quantities of data, you may contact us about other means of submitting. Back to
+											top.
+										</div>
+									</div>
+
+									<div class="basics-faq">
+										<h4>
+
+											How complete is your data?
+										</h4>
+										<div class="card">
+											For recent PhD graduates from American universities our data is fairly complete.
+											We have received complete data lists from the majority of the PhD-granting
+											geology departments in the United States (with some notable exceptions), but
+											our coverage of universities in other countries is not so good (particularly
+											Asian countries). We are also still working on acquiring complete data from
+											departments of computer science and statistics (which fall within our definition
+											of "mathematician") around the world. If you can provide us with data or a
+											person to contact about acquiring data at a particular institution, please
+											contact us. Back to top.
+
+
+										</div>
+									</div>
+
+									<div class="basics-faq">
+										<h4>
+											What do the flags on mathematicians' pages represent?
+										</h4>
+										<div class="card">
+											The flags displayed on mathematicians' pages are intended to represent the
+											country of the school from which they received their degree(s). In some cases,
+											we have inadvertently omitted the appropriate link to provide the flag. You may
+											contact us to have this corrected. Back to top.
+										</div>
+									</div>
+									<div class="basics-faq">
+										<h4>
+
+											What is a good way to display information on my Geology  ancestry?
+										</h4>
+										<div class="card">
+											In April 2014, 98,477 different users visted our site, accounting for 128,289
+											different sessions. Back to top.
+										</div>
+									</div>
+
+									<div class="basics-faq">
+										<h4>
+											How many visitors do you get to your site?
+										</h4>
+										<div class="card">
+											Technical questions, suggestions, and bug reports should be submitted via the
+											"Other inquiry" option on our contact form. Back to top.
+										</div>
+									</div>
+									<div class="basics-faq">
+										<h4>
+
+											I think I found a bug with your site. Who do I contact?
+										</h4>
+										<div class="card">
+											Technical questions, suggestions, and bug reports should be submitted via the
+											"Other inquiry" option on our contact form. Back to top.
+
+
+										</div>
+									</div>
+									<div class="basics-faq">
+										<h4>
+											I have a question not answered here. Who should I contact?
+										</h4>
+
+									</div>
+									<div class="basics-faq">
+										<h4>
+
+											Can you send me a copy of a thesis whose title I found in your database?
+										</h4>
+										<div class="card">
+											Please use our contact form, selecting the contact reason that most closely
+											aligns with the subject of your question. Back to top.
+										</div>
+									</div>
+
+
+									The geology Genealogy Project only catalogs the information displayed on our site.
+									In most
+									cases, we have done this through data submitted by our site's visitors. Thus, we have
+									never even
+									seen a copy of the thesis, let alone made an archival copy of it. If you are really
+									interested
+									in getting ahold of a thesis, you might try contacting the library at the university
+									that
+									granted the degree. (No, we do not maintain contact information for such libraries, so
+									please do
+									not email us to ask.)
+									<!-- FAQ Content -->
+
 								</div>
-							</div>
-							<!-- /Privacy FAQ Content -->
-							
-							</div>
 							</div>
 							<!-- /FAQ Content -->
-								
+
 						</div>
 					</div>
 
 				</div>
 
-			</div>					
+			</div>
 			<!-- /Page Content -->
-           
-            <!-- Footer -->
-                <layout-footer />
-            <!-- /Footer -->
-        </div>
-        <!-- /Main Wrapper -->
-        </div>
+
+			<!-- Footer -->
+			<layout-footer />
+			<!-- /Footer -->
+		</div>
+		<!-- /Main Wrapper -->
+	</div>
 </template>

@@ -35,7 +35,7 @@
 							</router-link>
 						</li>
 						<li class="nav-item">
-							<router-link to="/" class="nav-link">
+							<router-link to="/index" class="nav-link">
 								<i class="material-icons">power_settings_new</i> Logout
 							</router-link>
 						</li>
@@ -62,9 +62,9 @@ export default {
 		};
 	},
 	created() {
-		const current_user = JSON.parse(localStorage.currentUser);
-		console.log("202", current_user);
-		this.info = current_user
+		let data = JSON.parse((localStorage.getItem("currentUser")))
+		console.log("202", data);
+		this.info = data
 	}
 }
 </script>

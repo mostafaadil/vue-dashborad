@@ -19,6 +19,10 @@
                             <router-link to="/admin/states"><i data-feather="database"></i>
                                 <span>States</span></router-link>
                         </li>
+                        <li v-bind:class="{ 'active': currentPath == '/admin/posters' }">
+                            <router-link to="/admin/posters"><i data-feather="database"></i>
+                                <span>Posters</span></router-link>
+                        </li>
                         <li
                             v-bind:class="{ 'active': currentPath == '/admin/user-suspended' || currentPath == '/admin/users' || currentPath == '/admin/user-profile' || currentPath == '/admin/user-inactive' || currentPath == '/admin/user-administrator' || currentPath == '/admin/user-active' || currentPath == '/admin/activities' || currentPath == '/admin/profile-transactions' }">
                             <router-link to="/admin/cities"><i data-feather="users"></i>
@@ -41,7 +45,7 @@
                         </li>
                         <li
                             v-bind:class="{ 'active': currentPath == '/admin/transaction-withdraw' || currentPath == '/admin/transaction-pending' || currentPath == '/admin/transaction-onhold' || currentPath == '/admin/transaction-deposit' || currentPath == '/admin/transaction' || currentPath == '/admin/transaction-completed' }">
-                            <router-link to="/admin/transaction"><i data-feather="clipboard"></i>
+                            <router-link to="/admin/users"><i data-feather="clipboard"></i>
                                 <span>users</span></router-link>
                         </li>
                        

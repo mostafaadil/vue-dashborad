@@ -1,10 +1,11 @@
 <template>
   <div>
+
     <!-- Main Wrapper -->
     <div class="main-wrapper login-body">
+
       <div class="login-wrapper">
         <div class="container">
-
           <img class="img-fluid logo-dark mb-2" src="../../../assets/admin-img/logo-01.png" alt="Logo">
           <div class="loginbox">
 
@@ -16,15 +17,13 @@
 
                 <form class="login" @submit.prevent="tryToLogIn()">
                   <div class="form-group">
-                    <input v-model="user.name" type="text" class="form-control floating mt-2"
-                 />
-                    
+                    <input v-model="user.name" type="text" class="form-control floating mt-2" />
+
                     <div class="emailshow text-danger" id="email"></div>
                   </div>
                   <div class="form-group">
                     <div class="pass-group">
-                      <input v-model="user.pass" type="password" class="form-control floating pass-input mt-2"
-                         /><span
+                      <input v-model="user.pass" type="password" class="form-control floating pass-input mt-2" /><span
                         class="fa fa-eye-slash toggle-password pt-4"></span>
                       <div class="emailshow text-danger" id="password"></div>
                     </div>
@@ -73,17 +72,21 @@
 <script>
 
 export default {
-
+  mounted() {
+    if (localStorage.getItem('reloaded')) {
+        // The page was just reloaded. Clear the value from local storage
+        // so that it will reload the next time this page is visited.
+        localStorage.removeItem('reloaded');
+    } else {
+        // Set a flag so that we know not to reload the page twice.
+        localStorage.setItem('reloaded', '1');
+        location.reload();
+    }
+},
   methods: {
     tryToLogIn() {
       this.submitted = true;
       console.log("working")
-      // stop here if form is invalid
- 
-      // if (this.v$.$invalid) {
-      // return;
-      // console.log("valid");
-      // } else {
       console.log(this.user);
       this.http
         .post("users/login", { user: this.user, lang: "en" })
@@ -92,10 +95,11 @@ export default {
           if (res.status == true) {
             localStorage.setItem("currentUser", JSON.stringify(res.data))
             console.log(res.data.id);
-            if (res.data.type=="admin") {
+            if (res.data.type == "admin") {
               this.$router.push("/admin/index")
             }
-            if (res.data.type=="poster") {
+            if (res.data.type == "poster") {
+
               this.$router.push("/dashboard")
             }
 
@@ -105,10 +109,11 @@ export default {
     },
   },
   data() {
-    return ({ user: {}, })
+    return ({
+      hasReloaded: false, // Flag to track reload status,
+      user: {},
+    })
   },
-  
-
 }
 </script>
     
